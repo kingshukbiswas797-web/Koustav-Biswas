@@ -30,6 +30,20 @@
                         'neo': '8px 8px 0px 0px #000000',
                         'neo-sm': '4px 4px 0px 0px #000000',
                         'neo-btn': '6px 6px 0px 0px #000000',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        },
+                        marquee2: {
+                            '0%': { transform: 'translateX(100%)' },
+                            '100%': { transform: 'translateX(0%)' },
+                        }
+                    },
+                    animation: {
+                        marquee: 'marquee 15s linear infinite',
+                        marquee2: 'marquee2 15s linear infinite',
                     }
                 }
             }
@@ -96,8 +110,8 @@
 <body class="font-sans antialiased selection:bg-neo-pink selection:text-white overflow-x-hidden min-h-screen flex flex-col">
 
     <!-- Decorative background elements -->
-    <div class="fixed top-20 right-10 w-64 h-64 border-4 border-black rounded-full mix-blend-multiply opacity-20 bg-neo-yellow -z-10 pointer-events-none"></div>
-    <div class="fixed bottom-40 left-10 w-48 h-48 border-4 border-black mix-blend-multiply opacity-20 bg-neo-blue transform rotate-12 -z-10 pointer-events-none"></div>
+    <div class="fixed top-20 right-10 w-64 h-64 border-4 border-black rounded-full mix-blend-multiply opacity-20 bg-neo-yellow -z-10 pointer-events-none animate-[pulse_4s_ease-in-out_infinite]"></div>
+    <div class="fixed bottom-40 left-10 w-48 h-48 border-4 border-black mix-blend-multiply opacity-20 bg-neo-blue transform rotate-12 -z-10 pointer-events-none animate-[spin_12s_linear_infinite]"></div>
 
     <main class="flex-grow w-full max-w-6xl mx-auto px-6 py-16 md:py-24 space-y-32">
         
@@ -125,6 +139,30 @@
                 </a>
             </div>
         </header>
+
+        <!-- Moving Marquee Section -->
+        <div class="relative flex overflow-x-hidden bg-neo-green text-black font-header text-2xl py-3 border-y-4 border-black transform -rotate-2 w-[110vw] -ml-[10vw] shadow-[0_8px_0_0_rgba(0,0,0,1)]">
+            <div class="animate-marquee whitespace-nowrap">
+                <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
+                <span class="mx-4">⭐ JEE ASPIRANT</span>
+                <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
+                <span class="mx-4">⭐ JEE ASPIRANT</span>
+                <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
+                <span class="mx-4">⭐ JEE ASPIRANT</span>
+                <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
+                <span class="mx-4">⭐ JEE ASPIRANT</span>
+            </div>
+            <div class="absolute top-0 py-3 animate-marquee2 whitespace-nowrap">
+                <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
+                <span class="mx-4">⭐ JEE ASPIRANT</span>
+                <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
+                <span class="mx-4">⭐ JEE ASPIRANT</span>
+                <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
+                <span class="mx-4">⭐ JEE ASPIRANT</span>
+                <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
+                <span class="mx-4">⭐ JEE ASPIRANT</span>
+            </div>
+        </div>
 
         <!-- About Me Section -->
         <section id="about" class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
