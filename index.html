@@ -344,10 +344,8 @@
             }
         }
 
-        // Start typing effect on load
-        window.addEventListener('load', () => {
-            setTimeout(typeWriter1, 500); // slight delay before starting
-        });
+        // Start typing effect directly since script is at end of body
+        setTimeout(typeWriter1, 500);
     </script>
 </body>
 </html>
