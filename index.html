@@ -20,11 +20,11 @@
                         'mono': ['"JetBrains Mono"', 'monospace'],
                     },
                     colors: {
-                        'neo-yellow': '#FFD900',
-                        'neo-blue': '#407BFF',
-                        'neo-pink': '#FF4D6D',
-                        'neo-green': '#00E676',
-                        'neo-bg': '#F4F0E6',
+                        'neo-yellow': '#FF6200', /* Vibrant Orange */
+                        'neo-blue': '#CCFF00', /* Lime Green */
+                        'neo-pink': '#00D26A', /* Strong Green */
+                        'neo-green': '#FFB085', /* Peach/Light Orange */
+                        'neo-bg': '#FFF9F0', /* Pale Orange */
                     },
                     boxShadow: {
                         'neo': '8px 8px 0px 0px #000000',
@@ -51,7 +51,7 @@
     </script>
     <style>
         body {
-            background-color: #F4F0E6;
+            background-color: #FFF9F0;
             color: #000000;
         }
         /* Base brutalist border */
@@ -117,10 +117,10 @@
         
         <!-- Hero Section -->
         <header class="relative space-y-10 mt-8">
-            <h1 class="font-header text-6xl md:text-[5.5rem] lg:text-[7rem] leading-[1.1] uppercase tracking-tight z-10 relative">
-                Hi, I'm <br/>
-                <span class="bg-neo-yellow inline-block px-4 py-2 mt-2 neo-border transform -rotate-2 relative">
-                    Koustav
+            <h1 class="font-header text-6xl md:text-[5.5rem] lg:text-[7rem] leading-[1.1] uppercase tracking-tight z-10 relative min-h-[140px] md:min-h-[200px] lg:min-h-[250px]">
+                <span id="type-text-1"></span><br/>
+                <span id="type-box" class="bg-neo-yellow inline-block px-4 py-2 mt-2 neo-border transform -rotate-2 relative invisible">
+                    <span id="type-text-2"></span>
                     <!-- Shadow pseudo-element for text block -->
                     <div class="absolute inset-0 bg-black translate-x-3 translate-y-3 -z-10 border-4 border-black"></div>
                 </span>
@@ -317,5 +317,37 @@
         </div>
     </footer>
 
+    <script>
+        const text1 = "Hi I am ";
+        const text2 = "Koustav Biswas";
+        let i = 0;
+        let j = 0;
+        const speed = 100; // typing speed in milliseconds
+
+        function typeWriter1() {
+            if (i < text1.length) {
+                document.getElementById("type-text-1").innerHTML += text1.charAt(i);
+                i++;
+                setTimeout(typeWriter1, speed);
+            } else {
+                // Reveal the box and start typing name
+                document.getElementById("type-box").classList.remove("invisible");
+                setTimeout(typeWriter2, speed);
+            }
+        }
+
+        function typeWriter2() {
+            if (j < text2.length) {
+                document.getElementById("type-text-2").innerHTML += text2.charAt(j);
+                j++;
+                setTimeout(typeWriter2, speed);
+            }
+        }
+
+        // Start typing effect on load
+        window.addEventListener('load', () => {
+            setTimeout(typeWriter1, 500); // slight delay before starting
+        });
+    </script>
 </body>
 </html>
