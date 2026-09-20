@@ -107,7 +107,20 @@
         }
     </style>
 </head>
-<body class="font-sans antialiased selection:bg-neo-pink selection:text-white overflow-x-hidden min-h-screen flex flex-col">
+<body class="font-sans antialiased selection:bg-neo-pink selection:text-white overflow-x-hidden min-h-screen flex flex-col overflow-hidden">
+
+    <!-- NO SIGNAL Intro Animation -->
+    <div id="intro-screen" class="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center">
+        <!-- Noise Layer -->
+        <div id="static-noise" class="absolute inset-[-100%] z-0 opacity-0 pointer-events-none mix-blend-screen bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')]"></div>
+        <!-- Scanlines -->
+        <div id="scanlines" class="absolute inset-0 z-10 pointer-events-none opacity-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%]"></div>
+        
+        <div id="intro-content" class="relative z-20 flex flex-col items-center opacity-0 transition-opacity duration-100">
+            <h1 id="no-signal-text" class="font-header text-6xl md:text-8xl leading-none uppercase tracking-tighter mb-8 bg-white text-black px-8 py-4 border-[6px] border-black shadow-[12px_12px_0_0_#FFF] mix-blend-screen">NO SIGNAL</h1>
+            <p id="status-text" class="font-mono text-lg md:text-2xl font-bold uppercase bg-black text-white px-4 py-2 border-[4px] border-white tracking-widest shadow-[6px_6px_0_0_#FFF]">SEARCHING FOR CONNECTION...</p>
+        </div>
+    </div>
 
     <!-- Decorative background elements -->
     <div class="fixed top-20 right-10 w-64 h-64 border-4 border-black rounded-full mix-blend-multiply opacity-20 bg-neo-yellow -z-10 pointer-events-none animate-[pulse_4s_ease-in-out_infinite]"></div>
@@ -342,8 +355,102 @@
             }
         }
 
-        // Start typing effect directly since script is at end of body
-        setTimeout(typeWriter1, 500);
+        // NO SIGNAL Intro Animation Logic
+        const introScreen = document.getElementById('intro-screen');
+        const staticNoise = document.getElementById('static-noise');
+        const scanlines = document.getElementById('scanlines');
+        const introContent = document.getElementById('intro-content');
+        const noSignalText = document.getElementById('no-signal-text');
+        const statusText = document.getElementById('status-text');
+
+        // Check for reduced motion
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (prefersReducedMotion) {
+            introScreen.remove();
+            document.body.classList.remove('overflow-hidden');
+            setTimeout(typeWriter1, 500);
+        } else {
+            // Sequence timings
+            const statuses = ['NO SIGNAL', 'SIGNAL LOST', 'RECONNECTING...', 'SYNC FAILED', 'SEARCHING...'];
+            let statusIndex = 0;
+
+            // 0.0s - 0.5s: Start subtle static
+            setTimeout(() => {
+                staticNoise.style.opacity = '0.15';
+            }, 100);
+
+            // Animate noise translation randomly
+            let noiseInterval = setInterval(() => {
+                staticNoise.style.transform = `translate(${Math.floor(Math.random() * 10 - 5)}%, ${Math.floor(Math.random() * 10 - 5)}%)`;
+            }, 40);
+
+            // 0.5s: Reveal Scanlines & Text
+            setTimeout(() => {
+                scanlines.style.opacity = '1';
+                introContent.style.opacity = '1';
+            }, 500);
+
+            // Cycle text intentionally
+            let textInterval = setInterval(() => {
+                statusIndex = (statusIndex + 1) % statuses.length;
+                statusText.innerText = statuses[statusIndex];
+            }, 400);
+
+            // Jitter / Tearing glitches
+            let glitchInterval = setInterval(() => {
+                if (Math.random() > 0.6) {
+                    noSignalText.style.transform = `translate(${Math.random() * 20 - 10}px, 0) skewX(${Math.random() * 10 - 5}deg)`;
+                    setTimeout(() => {
+                        noSignalText.style.transform = 'none';
+                    }, 50 + Math.random() * 100);
+                }
+            }, 150);
+
+            // 2.5s: Freeze, cut to black, vertical line reveal
+            setTimeout(() => {
+                // Freeze
+                clearInterval(noiseInterval);
+                clearInterval(textInterval);
+                clearInterval(glitchInterval);
+
+                // Cut to black
+                introContent.style.display = 'none';
+                staticNoise.style.display = 'none';
+                scanlines.style.display = 'none';
+
+                // Sharp horizontal white line
+                setTimeout(() => {
+                    introScreen.classList.remove('bg-black');
+                    introScreen.classList.add('bg-transparent');
+                    introScreen.innerHTML = `
+                        <div id="tv-top" class="absolute top-0 left-0 w-full h-1/2 bg-black origin-top transition-transform duration-300 ease-in"></div>
+                        <div id="tv-bottom" class="absolute bottom-0 left-0 w-full h-1/2 bg-black origin-bottom transition-transform duration-300 ease-in"></div>
+                        <div id="tv-line" class="absolute top-1/2 left-0 w-full h-[4px] bg-white transform -translate-y-1/2 z-10 transition-all duration-300 ease-in shadow-[0_0_20px_#fff]"></div>
+                    `;
+
+                    setTimeout(() => {
+                        // Flash out
+                        const tvLine = document.getElementById('tv-line');
+                        const tvTop = document.getElementById('tv-top');
+                        const tvBottom = document.getElementById('tv-bottom');
+                        
+                        tvLine.style.height = '100vh';
+                        tvLine.style.opacity = '0';
+                        tvTop.style.transform = 'scaleY(0)';
+                        tvBottom.style.transform = 'scaleY(0)';
+                        
+                        setTimeout(() => {
+                            introScreen.remove();
+                            document.body.classList.remove('overflow-hidden');
+                            // Start typewriter after intro
+                            setTimeout(typeWriter1, 300);
+                        }, 300);
+                    }, 150);
+
+                }, 100);
+            }, 2500);
+        }
     </script>
 </body>
 </html>
