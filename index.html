@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koustav | Future AI Entrepreneur</title>
+    <!-- Google Fonts: Archivo Black, Space Grotesk, JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@400;700;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'header': ['"Archivo Black"', 'sans-serif'],
+                        'sans': ['"Space Grotesk"', 'sans-serif'],
+                        'mono': ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        'neo-yellow': '#DFFF00',
+                        'neo-blue': '#00FFFF',
+                        'neo-pink': '#FF00FF',
+                        'neo-green': '#39FF14',
+                        'neo-bg': '#FDFDFD',
+                    },
+                    boxShadow: {
+                        'neo': '8px 8px 0px 0px #000000',
+                        'neo-sm': '4px 4px 0px 0px #000000',
+                        'neo-btn': '6px 6px 0px 0px #000000',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FDFDFD;
+            color: #000000;
+        }
+        /* Base brutalist border */
+        .neo-border {
+            border: 4px solid #000;
+        }
+        
+        /* Cards */
+        .neo-card {
+            border: 4px solid #000;
+            box-shadow: 8px 8px 0px 0px #000;
+            transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .neo-card:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 12px 12px 0px 0px #000;
+        }
+        
+        /* Buttons */
+        .neo-btn {
+            border: 4px solid #000;
+            box-shadow: 6px 6px 0px 0px #000;
+            transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .neo-btn:active {
+            transform: translate(6px, 6px);
+            box-shadow: 0px 0px 0px 0px #000;
+        }
+        
+        /* Pills */
+        .neo-pill {
+            border: 3px solid #000;
+            box-shadow: 4px 4px 0px 0px #000;
+            transition: transform 0.1s ease-out, box-shadow 0.1s ease-out;
+        }
+        .neo-pill:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px 0px #000;
+        }
+
+        /* Diagonal stripes pattern utility */
+        .bg-stripes {
+            background-image: repeating-linear-gradient(
+                45deg,
+                #000 0,
+                #000 2px,
+                transparent 2px,
+                transparent 8px
+            );
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-neo-pink selection:text-white overflow-x-hidden min-h-screen flex flex-col">
+
+    <!-- Decorative background elements -->
+    <div class="fixed top-20 right-10 w-64 h-64 border-4 border-black rounded-full mix-blend-multiply opacity-20 bg-neo-yellow -z-10 pointer-events-none"></div>
+    <div class="fixed bottom-40 left-10 w-48 h-48 border-4 border-black mix-blend-multiply opacity-20 bg-neo-blue transform rotate-12 -z-10 pointer-events-none"></div>
+
+    <main class="flex-grow w-full max-w-6xl mx-auto px-6 py-16 md:py-24 space-y-32">
+        
+        <!-- Hero Section -->
+        <header class="relative space-y-10 mt-8">
+            <h1 class="font-header text-6xl md:text-[5.5rem] lg:text-[7rem] leading-[1.1] uppercase tracking-tight z-10 relative">
+                Hi, I'm <br/>
+                <span class="bg-neo-yellow inline-block px-4 py-2 mt-2 neo-border transform -rotate-2 relative">
+                    Koustav
+                    <!-- Shadow pseudo-element for text block -->
+                    <div class="absolute inset-0 bg-black translate-x-3 translate-y-3 -z-10 border-4 border-black"></div>
+                </span>
+            </h1>
+            
+            <p class="font-mono text-xl md:text-2xl lg:text-3xl max-w-3xl font-bold bg-white inline-block px-6 py-4 neo-card relative z-10">
+                A 15-year-old Class 9 student, JEE Aspirant, and Future AI Entrepreneur.
+            </p>
+            
+            <div class="flex flex-wrap gap-6 pt-6">
+                <a href="#projects" class="neo-btn bg-neo-blue px-8 py-4 text-xl font-header uppercase tracking-wider hover:bg-white text-black">
+                    See My Projects
+                </a>
+                <a href="mailto:contact@example.com" class="neo-btn bg-neo-pink px-8 py-4 text-xl font-header uppercase tracking-wider text-black hover:bg-black hover:text-white">
+                    Contact Me
+                </a>
+            </div>
+        </header>
+
+        <!-- About Me Section -->
+        <section id="about" class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+            <div class="lg:col-span-8">
+                <div class="neo-card bg-white p-8 md:p-12 h-full relative">
+                    <h2 class="font-header text-4xl md:text-5xl uppercase mb-8 pb-4 border-b-4 border-black inline-block">The Vision</h2>
+                    <p class="font-mono text-lg md:text-xl leading-relaxed font-semibold">
+                        I am extremely strong in mathematics and physics, with a track record of solving Olympiad-level questions. My primary goal is to build a deep, first-principles understanding of concepts to crack the JEE and get into <span class="bg-neo-yellow px-2 py-1 neo-border mx-1">IIT Bombay</span>. 
+                        <br><br>
+                        Outside of academics, I dedicate 5 hours a week to mastering Python and AI, with the ambition of building valuable startups and AI products.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Brutalist Decorative Graphic -->
+            <div class="hidden lg:flex lg:col-span-4 relative flex-col items-center justify-center p-8">
+                 <!-- Layer 1 -->
+                 <div class="absolute inset-0 bg-neo-pink neo-border transform rotate-6 z-0 box-shadow-neo"></div>
+                 <!-- Layer 2 -->
+                 <div class="absolute inset-4 bg-stripes neo-border transform -rotate-3 z-10"></div>
+                 <!-- Layer 3 -->
+                 <div class="absolute bg-white p-6 neo-border shadow-[4px_4px_0_0_#000] z-20 transform -rotate-6">
+                    <span class="font-header text-6xl text-center block">AI</span>
+                    <span class="font-mono font-bold block border-t-4 border-black pt-2 mt-2">FUTURE</span>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="space-y-12 relative">
+            <div class="absolute right-0 top-0 text-neo-pink opacity-20 font-header text-9xl -z-10 hidden md:block select-none pointer-events-none">SKILLS</div>
+            
+            <h2 class="font-header text-4xl md:text-5xl uppercase inline-block bg-neo-green px-4 py-2 neo-border transform -rotate-1 shadow-[6px_6px_0_0_#000]">
+                Arsenal
+            </h2>
+            
+            <div class="flex flex-wrap gap-4 md:gap-6 pt-4">
+                <div class="neo-pill bg-white px-6 py-4 font-mono text-lg font-bold uppercase hover:bg-neo-yellow cursor-default">
+                    Olympiad-Level Mathematics
+                </div>
+                <div class="neo-pill bg-white px-6 py-4 font-mono text-lg font-bold uppercase hover:bg-neo-blue cursor-default">
+                    Physics Numericals
+                </div>
+                <div class="neo-pill bg-white px-6 py-4 font-mono text-lg font-bold uppercase hover:bg-neo-pink hover:text-white cursor-default">
+                    Python Programming
+                </div>
+                <div class="neo-pill bg-white px-6 py-4 font-mono text-lg font-bold uppercase hover:bg-neo-green cursor-default">
+                    Prompt Engineering
+                </div>
+                <div class="neo-pill bg-black text-white px-6 py-4 font-mono text-lg font-bold uppercase border-dashed border-white border-2 outline outline-4 outline-black cursor-default">
+                    AI Model Training (In Progress)
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="space-y-12">
+            <h2 class="font-header text-4xl md:text-5xl uppercase inline-block bg-neo-blue px-4 py-2 neo-border transform rotate-1 shadow-[6px_6px_0_0_#000]">
+                Projects
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 pt-6">
+                <!-- Project 1 -->
+                <div class="neo-card bg-neo-yellow p-8 flex flex-col h-full hover:-translate-y-2 hover:-translate-x-2 hover:shadow-[16px_16px_0_0_#000]">
+                    <!-- Project Image/Placeholder -->
+                    <div class="w-full h-48 bg-white neo-border mb-6 overflow-hidden flex items-center justify-center relative group">
+                        <div class="absolute inset-0 bg-stripes opacity-30"></div>
+                        <span class="font-header text-3xl z-10 bg-white px-4 py-2 neo-border shadow-[4px_4px_0_0_#000] group-hover:scale-110 transition-transform">DOLPHIN</span>
+                    </div>
+                    
+                    <h3 class="font-header text-3xl mb-4 uppercase">Dolphin Hotel</h3>
+                    <p class="font-mono text-lg font-bold mb-8 flex-grow">
+                        A live web project showcasing my foundational web deployment skills.
+                    </p>
+                    <a href="https://dolphinhotel.vercel.app" target="_blank" rel="noopener noreferrer" class="neo-btn bg-white text-center py-4 text-xl font-header uppercase w-full hover:bg-black hover:text-white">
+                        Visit Site &rarr;
+                    </a>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="neo-card bg-neo-pink p-8 flex flex-col h-full hover:-translate-y-2 hover:-translate-x-2 hover:shadow-[16px_16px_0_0_#000]">
+                     <!-- Project Image/Placeholder -->
+                     <div class="w-full h-48 bg-white neo-border mb-6 overflow-hidden flex items-center justify-center relative group">
+                        <div class="absolute inset-0 bg-black opacity-10"></div>
+                        <span class="font-header text-3xl z-10 bg-black text-neo-pink px-4 py-2 neo-border shadow-[4px_4px_0_0_#fff] group-hover:scale-110 transition-transform">AI APP</span>
+                    </div>
+
+                    <h3 class="font-header text-3xl mb-4 uppercase text-black">AI App Development</h3>
+                    <p class="font-mono text-lg font-bold mb-8 flex-grow text-black">
+                        Currently transitioning from core Python to building real-world AI applications using LLMs and Neural Networks.
+                    </p>
+                    <div class="neo-btn bg-white opacity-60 text-center py-4 text-xl font-header uppercase w-full cursor-not-allowed">
+                        In Development
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t-[6px] border-black mt-20 bg-neo-yellow">
+        <div class="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 bg-black rounded-full neo-border shadow-[4px_4px_0_0_#fff] border-white outline outline-4 outline-black flex justify-center items-center overflow-hidden">
+                    <span class="text-white font-header text-xl">K</span>
+                </div>
+                <p class="font-header text-2xl uppercase tracking-widest text-center md:text-left">
+                    Built by Koustav.<br class="md:hidden"/> Mentored by AI.
+                </p>
+            </div>
+            
+            <div class="font-mono text-lg font-bold flex gap-6 mt-4 md:mt-0">
+                <a href="#about" class="hover:underline hover:text-neo-pink hover:bg-black hover:text-white px-2 py-1 transition-colors">/About</a>
+                <a href="#projects" class="hover:underline hover:text-neo-pink hover:bg-black hover:text-white px-2 py-1 transition-colors">/Projects</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
