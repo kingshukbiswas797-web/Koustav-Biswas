@@ -1,509 +1,510 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Koustav | Future AI Entrepreneur</title>
-    <!-- Google Fonts: Archivo Black, Space Grotesk, JetBrains Mono -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@400;700;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'header': ['"Archivo Black"', 'sans-serif'],
-                        'sans': ['"Space Grotesk"', 'sans-serif'],
-                        'mono': ['"JetBrains Mono"', 'monospace'],
-                    },
-                    colors: {
-                        'neo-yellow': '#FF6200', /* Vibrant Orange */
-                        'neo-blue': '#CCFF00', /* Lime Green */
-                        'neo-pink': '#00D26A', /* Strong Green */
-                        'neo-green': '#FFB085', /* Peach/Light Orange */
-                        'neo-bg': '#FFF9F0', /* Pale Orange */
-                    },
-                    boxShadow: {
-                        'neo': '8px 8px 0px 0px #000000',
-                        'neo-sm': '4px 4px 0px 0px #000000',
-                        'neo-btn': '6px 6px 0px 0px #000000',
-                    },
-                    keyframes: {
-                        marquee: {
-                            '0%': { transform: 'translateX(0%)' },
-                            '100%': { transform: 'translateX(-100%)' },
-                        },
-                        marquee2: {
-                            '0%': { transform: 'translateX(100%)' },
-                            '100%': { transform: 'translateX(0%)' },
-                        }
-                    },
-                    animation: {
-                        marquee: 'marquee 15s linear infinite',
-                        marquee2: 'marquee2 15s linear infinite',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        :root {
-            --neo-color: #000;
-            --neo-bg: #FFF9F0;
-            --neo-text: #000;
-            --stripe-color: #000;
-        }
-        html.dark {
-            --neo-color: #FFF;
-            --neo-bg: #111111;
-            --neo-text: #FFF;
-            --stripe-color: #FFF;
-        }
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Koustav | Future AI Entrepreneur</title>
+ <!-- Google Fonts: Archivo Black, Space Grotesk, JetBrains Mono -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@400;700;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+ <!-- Tailwind CSS -->
+ <script src="https://cdn.tailwindcss.com"></script>
+ <script>
+ tailwind.config = {
+ darkMode: 'class',
+ theme: {
+ extend: {
+ fontFamily: {
+ 'header': ['"Archivo Black"', 'sans-serif'],
+ 'sans': ['"Space Grotesk"', 'sans-serif'],
+ 'mono': ['"JetBrains Mono"', 'monospace'],
+ },
+ colors: {
+ 'neo-yellow': '#FF6200', /* Vibrant Orange */
+ 'neo-blue': '#CCFF00', /* Lime Green */
+ 'neo-pink': '#00D26A', /* Strong Green */
+ 'neo-green': '#FFB085', /* Peach/Light Orange */
+ 'neo-bg': '#FFF9F0', /* Pale Orange */
+ },
+ boxShadow: {
+ 'neo': '8px 8px 0px 0px #000000',
+ 'neo-sm': '4px 4px 0px 0px #000000',
+ 'neo-btn': '6px 6px 0px 0px #000000',
+ },
+ keyframes: {
+ marquee: {
+ '0%': { transform: 'translateX(0%)' },
+ '100%': { transform: 'translateX(-100%)' },
+ },
+ marquee2: {
+ '0%': { transform: 'translateX(100%)' },
+ '100%': { transform: 'translateX(0%)' },
+ }
+ },
+ animation: {
+ marquee: 'marquee 15s linear infinite',
+ marquee2: 'marquee2 15s linear infinite',
+ }
+ }
+ }
+ }
+ </script>
+ <style>
+ :root {
+ --neo-color: #000;
+ --neo-bg: #FFF9F0;
+ --neo-text: #000;
+ --stripe-color: #000;
+ }
+ html.dark {
+ --neo-color: #FFF;
+ --neo-bg: #111111;
+ --neo-text: #FFF;
+ --stripe-color: #FFF;
+ }
 
-        body {
-            background-color: var(--neo-bg);
-            color: var(--neo-text);
-            transition: background-color 0.3s, color 0.3s;
-        }
-        
-        /* Base brutalist border */
-        .neo-border {
-            border: 4px solid var(--neo-color);
-        }
-        
-        /* Cards */
-        .neo-card {
-            border: 4px solid var(--neo-color);
-            box-shadow: 8px 8px 0px 0px var(--neo-color);
-            transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.2s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s;
-        }
-        .neo-card:hover {
-            transform: translate(-4px, -4px);
-            box-shadow: 12px 12px 0px 0px var(--neo-color);
-        }
-        
-        /* Buttons */
-        .neo-btn {
-            border: 4px solid var(--neo-color);
-            box-shadow: 6px 6px 0px 0px var(--neo-color);
-            transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, border-color 0.3s;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .neo-btn:active {
-            transform: translate(6px, 6px);
-            box-shadow: 0px 0px 0px 0px var(--neo-color);
-        }
-        
-        /* Pills */
-        .neo-pill {
-            border: 3px solid var(--neo-color);
-            box-shadow: 4px 4px 0px 0px var(--neo-color);
-            transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, border-color 0.3s;
-        }
-        .neo-pill:hover {
-            transform: translate(-2px, -2px);
-            box-shadow: 6px 6px 0px 0px var(--neo-color);
-        }
+ body {
+ background-color: var(--neo-bg);
+ color: var(--neo-text);
+ transition: background-color 0.3s, color 0.3s;
+ }
+ 
+ /* Base brutalist border */
+ .neo-border {
+ border: 4px solid var(--neo-color);
+ }
+ 
+ /* Cards */
+ .neo-card {
+ border: 4px solid var(--neo-color);
+ box-shadow: 8px 8px 0px 0px var(--neo-color);
+ transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.2s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s;
+ }
+ .neo-card:hover {
+ transform: translate(-4px, -4px);
+ box-shadow: 12px 12px 0px 0px var(--neo-color);
+ }
+ 
+ /* Buttons */
+ .neo-btn {
+ border: 4px solid var(--neo-color);
+ box-shadow: 6px 6px 0px 0px var(--neo-color);
+ transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, border-color 0.3s;
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ }
+ .neo-btn:active {
+ transform: translate(6px, 6px);
+ box-shadow: 0px 0px 0px 0px var(--neo-color);
+ }
+ 
+ /* Pills */
+ .neo-pill {
+ border: 3px solid var(--neo-color);
+ box-shadow: 4px 4px 0px 0px var(--neo-color);
+ transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, border-color 0.3s;
+ }
+ .neo-pill:hover {
+ transform: translate(-2px, -2px);
+ box-shadow: 6px 6px 0px 0px var(--neo-color);
+ }
 
-        /* Diagonal stripes pattern utility */
-        .bg-stripes {
-            background-image: repeating-linear-gradient(
-                45deg,
-                var(--stripe-color) 0,
-                var(--stripe-color) 2px,
-                transparent 2px,
-                transparent 8px
-            );
-        }
-    </style>
+ /* Diagonal stripes pattern utility */
+ .bg-stripes {
+ background-image: repeating-linear-gradient(
+ 45deg,
+ var(--stripe-color) 0,
+ var(--stripe-color) 2px,
+ transparent 2px,
+ transparent 8px
+ );
+ }
+ </style>
 </head>
 <body class="font-sans antialiased selection:bg-neo-pink selection:text-white overflow-x-hidden min-h-screen flex flex-col overflow-hidden">
 
-        <!-- Dark Mode Toggle -->
-    <button id="dark-mode-toggle" class="fixed top-6 right-6 z-50 neo-btn bg-white dark:bg-[#222] text-black dark:text-white px-4 py-3 text-2xl cursor-pointer">
-        ☀️
-    </button>
+ <!-- Dark Mode Toggle -->
+ <button id="dark-mode-toggle" class="fixed top-6 right-6 z-50 neo-btn bg-white  text-black px-4 py-3 text-2xl cursor-pointer">
+ ☀️
+ </button>
 
-    <!-- NO SIGNAL Intro Animation -->
-    <div id="intro-screen" class="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center">
-        <!-- Noise Layer -->
-        <div id="static-noise" class="absolute inset-[-100%] z-0 opacity-0 pointer-events-none mix-blend-screen bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')]"></div>
-        <!-- Scanlines -->
-        <div id="scanlines" class="absolute inset-0 z-10 pointer-events-none opacity-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%]"></div>
-        
-        <div id="intro-content" class="relative z-20 flex flex-col items-center opacity-0 transition-opacity duration-100">
-            <h1 id="no-signal-text" class="font-header text-6xl md:text-8xl leading-none uppercase tracking-tighter mb-8 bg-white dark:bg-black text-black dark:text-white dark:text-white px-8 py-4 border-[6px] border-black dark:border-white shadow-[12px_12px_0_0_#FFF] mix-blend-screen">NO SIGNAL</h1>
-            <p id="status-text" class="font-mono text-lg md:text-2xl font-bold uppercase bg-black text-white px-4 py-2 border-[4px] border-white dark:border-[#444] tracking-widest shadow-[6px_6px_0_0_#FFF]">SEARCHING FOR CONNECTION...</p>
-        </div>
-    </div>
+ <!-- NO SIGNAL Intro Animation -->
+ <div id="intro-screen" class="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center">
+ <!-- Noise Layer -->
+ <div id="static-noise" class="absolute inset-[-100%] z-0 opacity-0 pointer-events-none mix-blend-screen bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')]"></div>
+ <!-- Scanlines -->
+ <div id="scanlines" class="absolute inset-0 z-10 pointer-events-none opacity-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%]"></div>
+ 
+ <div id="intro-content" class="relative z-20 flex flex-col items-center opacity-0 transition-opacity duration-100">
+ <h1 id="no-signal-text" class="font-header text-6xl md:text-8xl leading-none uppercase tracking-tighter mb-8 bg-white text-black px-8 py-4 border-[6px] border-black shadow-[12px_12px_0_0_#FFF] mix-blend-screen">NO SIGNAL</h1>
+ <p id="status-text" class="font-mono text-lg md:text-2xl font-bold uppercase bg-black text-white px-4 py-2 border-[4px] border-white tracking-widest shadow-[6px_6px_0_0_#FFF]">SEARCHING FOR CONNECTION...</p>
+ </div>
+ </div>
 
-    <!-- Decorative background elements -->
-    <div class="fixed top-20 right-10 w-64 h-64 border-4 border-black dark:border-white rounded-full mix-blend-multiply opacity-20 bg-neo-yellow -z-10 pointer-events-none animate-[pulse_4s_ease-in-out_infinite]"></div>
-    <div class="fixed bottom-40 left-10 w-48 h-48 border-4 border-black dark:border-white mix-blend-multiply opacity-20 bg-neo-blue transform rotate-12 -z-10 pointer-events-none animate-[spin_12s_linear_infinite]"></div>
+ <!-- Decorative background elements -->
+ <div class="fixed top-20 right-10 w-64 h-64 border-4 border-black rounded-full mix-blend-multiply opacity-20 bg-neo-yellow -z-10 pointer-events-none animate-[pulse_4s_ease-in-out_infinite]"></div>
+ <div class="fixed bottom-40 left-10 w-48 h-48 border-4 border-black mix-blend-multiply opacity-20 bg-neo-blue transform rotate-12 -z-10 pointer-events-none animate-[spin_12s_linear_infinite]"></div>
 
-    <main class="flex-grow w-full max-w-6xl mx-auto px-6 py-16 md:py-24 space-y-32">
-        
-        <!-- Hero Section -->
-        <header class="relative space-y-10 mt-8">
-            <h1 class="font-header text-6xl md:text-[5.5rem] lg:text-[7rem] leading-[1.1] uppercase tracking-tight z-10 relative min-h-[140px] md:min-h-[200px] lg:min-h-[250px]">
-                <span id="type-text-1"></span><br/>
-                <span id="type-box" class="bg-neo-yellow inline-block px-4 py-2 mt-2 neo-border transform -rotate-2 relative invisible shadow-[8px_8px_0_0_var(--neo-color)]">
-                    <span id="type-text-2" class="relative z-20"></span>
-                </span>
-            </h1>
-            
-            <p class="font-mono text-xl md:text-2xl lg:text-3xl max-w-3xl font-bold bg-white inline-block px-6 py-4 neo-card relative z-10">
-                A 15-year-old Class 9 student, JEE Aspirant, and Future AI Entrepreneur.
-            </p>
-            
-            <div class="flex flex-wrap gap-6 pt-6">
-                <a href="#projects" class="neo-btn bg-neo-blue px-8 py-4 text-xl font-header uppercase tracking-wider hover:bg-white dark:bg-black text-black dark:text-white dark:text-white">
-                    See My Projects
-                </a>
-                <a href="#community" class="neo-btn bg-neo-pink px-8 py-4 text-xl font-header uppercase tracking-wider text-black dark:text-white hover:bg-black hover:text-white">
-                    Join Community
-                </a>
-            </div>
-        </header>
+ <main class="flex-grow w-full max-w-6xl mx-auto px-6 py-16 md:py-24 space-y-32">
+ 
+ <!-- Hero Section -->
+ <header class="relative space-y-10 mt-8">
+ <h1 class="font-header text-6xl md:text-[5.5rem] lg:text-[7rem] leading-[1.1] uppercase tracking-tight z-10 relative min-h-[140px] md:min-h-[200px] lg:min-h-[250px]">
+ <span id="type-text-1"></span><br/>
+ <span id="type-box" class="bg-neo-yellow inline-block px-4 py-2 mt-2 neo-border transform -rotate-2 relative invisible shadow-[8px_8px_0_0_var(--neo-color)]">
+ <span id="type-text-2" class="relative z-20"></span>
+ </span>
+ </h1>
+ 
+ <p class="font-mono text-xl md:text-2xl lg:text-3xl max-w-3xl font-bold bg-white inline-block px-6 py-4 neo-card relative z-10">
+ A 15-year-old Class 9 student, JEE Aspirant, and Future AI Entrepreneur.
+ </p>
+ 
+ <div class="flex flex-wrap gap-6 pt-6">
+ <a href="#projects" class="neo-btn bg-neo-blue px-8 py-4 text-xl font-header uppercase tracking-wider hover:bg-white text-black ">
+ See My Projects
+ </a>
+ <a href="#community" class="neo-btn bg-neo-pink px-8 py-4 text-xl font-header uppercase tracking-wider text-black hover:bg-black hover:text-white">
+ Join Community
+ </a>
+ </div>
+ </header>
 
-        <!-- Moving Marquee Section -->
-        <div class="relative flex overflow-x-hidden bg-neo-green text-black dark:text-white font-header text-2xl py-3 border-y-4 border-black dark:border-white transform -rotate-2 w-[110vw] -ml-[10vw] shadow-[0_8px_0_0_var(--neo-color)]">
-            <div class="animate-marquee whitespace-nowrap">
-                <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
-                <span class="mx-4">⭐ JEE ASPIRANT</span>
-                <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
-                <span class="mx-4">⭐ JEE ASPIRANT</span>
-                <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
-                <span class="mx-4">⭐ JEE ASPIRANT</span>
-                <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
-                <span class="mx-4">⭐ JEE ASPIRANT</span>
-            </div>
-            <div class="absolute top-0 py-3 animate-marquee2 whitespace-nowrap">
-                <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
-                <span class="mx-4">⭐ JEE ASPIRANT</span>
-                <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
-                <span class="mx-4">⭐ JEE ASPIRANT</span>
-                <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
-                <span class="mx-4">⭐ JEE ASPIRANT</span>
-                <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
-                <span class="mx-4">⭐ JEE ASPIRANT</span>
-            </div>
-        </div>
+ <!-- Moving Marquee Section -->
+ <div class="relative flex overflow-x-hidden bg-neo-green text-black font-header text-2xl py-3 border-y-4 border-black transform -rotate-2 w-[110vw] -ml-[10vw] shadow-[0_8px_0_0_var(--neo-color)]">
+ <div class="animate-marquee whitespace-nowrap">
+ <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
+ <span class="mx-4">⭐ JEE ASPIRANT</span>
+ <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
+ <span class="mx-4">⭐ JEE ASPIRANT</span>
+ <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
+ <span class="mx-4">⭐ JEE ASPIRANT</span>
+ <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
+ <span class="mx-4">⭐ JEE ASPIRANT</span>
+ </div>
+ <div class="absolute top-0 py-3 animate-marquee2 whitespace-nowrap">
+ <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
+ <span class="mx-4">⭐ JEE ASPIRANT</span>
+ <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
+ <span class="mx-4">⭐ JEE ASPIRANT</span>
+ <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
+ <span class="mx-4">⭐ JEE ASPIRANT</span>
+ <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
+ <span class="mx-4">⭐ JEE ASPIRANT</span>
+ </div>
+ </div>
 
-        <!-- About Me Section -->
-        <section id="about" class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
-            <div class="lg:col-span-8">
-                <div class="neo-card bg-white p-8 md:p-12 h-full relative">
-                    <h2 class="font-header text-4xl md:text-5xl uppercase mb-8 pb-4 border-b-4 border-black dark:border-white inline-block">The Vision</h2>
-                    <p class="font-mono text-lg md:text-xl leading-relaxed font-semibold">
-                        I dedicate 5 hours a week to mastering Python and AI, with the ambition of building valuable startups and AI products.
-                    </p>
-                </div>
-            </div>
-            
-            <!-- Brutalist Decorative Graphic -->
-            <div class="hidden lg:flex lg:col-span-4 relative flex-col items-center justify-center p-8">
-                 <!-- Layer 1 -->
-                 <div class="absolute inset-0 bg-neo-pink neo-border transform rotate-6 z-0 box-shadow-neo"></div>
-                 <!-- Layer 2 -->
-                 <div class="absolute inset-4 bg-stripes neo-border transform -rotate-3 z-10"></div>
-                 <!-- Layer 3 -->
-                 <div class="absolute bg-white p-6 neo-border shadow-[4px_4px_0_0_var(--neo-color)] z-20 transform -rotate-6">
-                    <span class="font-header text-6xl text-center block">AI</span>
-                    <span class="font-mono font-bold block border-t-4 border-black dark:border-white pt-2 mt-2">FUTURE</span>
-                 </div>
-            </div>
-        </section>
+ <!-- About Me Section -->
+ <section id="about" class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+ <div class="lg:col-span-8">
+ <div class="neo-card bg-white p-8 md:p-12 h-full relative">
+ <h2 class="font-header text-4xl md:text-5xl uppercase mb-8 pb-4 border-b-4 border-black inline-block">The Vision</h2>
+ <p class="font-mono text-lg md:text-xl leading-relaxed font-semibold">
+ I dedicate 5 hours a week to mastering Python and AI, with the ambition of building valuable startups and AI products.
+ </p>
+ </div>
+ </div>
+ 
+ <!-- Brutalist Decorative Graphic -->
+ <div class="hidden lg:flex lg:col-span-4 relative flex-col items-center justify-center p-8">
+ <!-- Layer 1 -->
+ <div class="absolute inset-0 bg-neo-pink neo-border transform rotate-6 z-0 box-shadow-neo"></div>
+ <!-- Layer 2 -->
+ <div class="absolute inset-4 bg-stripes neo-border transform -rotate-3 z-10"></div>
+ <!-- Layer 3 -->
+ <div class="absolute bg-white p-6 neo-border shadow-[4px_4px_0_0_var(--neo-color)] z-20 transform -rotate-6">
+ <span class="font-header text-6xl text-center block">AI</span>
+ <span class="font-mono font-bold block border-t-4 border-black pt-2 mt-2">FUTURE</span>
+ </div>
+ </div>
+ </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="space-y-12 relative">
-            <div class="absolute right-0 top-0 text-neo-pink opacity-20 font-header text-9xl -z-10 hidden md:block select-none pointer-events-none">SKILLS</div>
-            
-            <h2 class="font-header text-4xl md:text-5xl uppercase inline-block bg-neo-green px-4 py-2 neo-border transform -rotate-1 shadow-[6px_6px_0_0_var(--neo-color)]">
-                Arsenal
-            </h2>
-            
-            <div class="flex flex-wrap gap-4 md:gap-6 pt-4">
-                <div class="neo-pill bg-white px-6 py-4 font-mono text-lg font-bold uppercase hover:bg-neo-yellow cursor-default">
-                    Olympiad-Level Mathematics
-                </div>
-                <div class="neo-pill bg-white px-6 py-4 font-mono text-lg font-bold uppercase hover:bg-neo-blue cursor-default">
-                    Physics Numericals
-                </div>
-                <div class="neo-pill bg-white px-6 py-4 font-mono text-lg font-bold uppercase hover:bg-neo-pink hover:text-white cursor-default">
-                    Python Programming
-                </div>
-                <div class="neo-pill bg-white px-6 py-4 font-mono text-lg font-bold uppercase hover:bg-neo-green cursor-default">
-                    Prompt Engineering
-                </div>
-                <div class="neo-pill bg-black text-white px-6 py-4 font-mono text-lg font-bold uppercase border-dashed border-white dark:border-[#444] border-2 outline outline-4 outline-black cursor-default">
-                    AI Model Training (In Progress)
-                </div>
-            </div>
-        </section>
+ <!-- Skills Section -->
+ <section id="skills" class="space-y-12 relative">
+ <div class="absolute right-0 top-0 text-neo-pink opacity-20 font-header text-9xl -z-10 hidden md:block select-none pointer-events-none">SKILLS</div>
+ 
+ <h2 class="font-header text-4xl md:text-5xl uppercase inline-block bg-neo-green px-4 py-2 neo-border transform -rotate-1 shadow-[6px_6px_0_0_var(--neo-color)]">
+ Arsenal
+ </h2>
+ 
+ <div class="flex flex-wrap gap-4 md:gap-6 pt-4">
+ <div class="neo-pill bg-white px-6 py-4 font-mono text-lg font-bold uppercase hover:bg-neo-yellow cursor-default">
+ Olympiad-Level Mathematics
+ </div>
+ <div class="neo-pill bg-white px-6 py-4 font-mono text-lg font-bold uppercase hover:bg-neo-blue cursor-default">
+ Physics Numericals
+ </div>
+ <div class="neo-pill bg-white px-6 py-4 font-mono text-lg font-bold uppercase hover:bg-neo-pink hover:text-white cursor-default">
+ Python Programming
+ </div>
+ <div class="neo-pill bg-white px-6 py-4 font-mono text-lg font-bold uppercase hover:bg-neo-green cursor-default">
+ Prompt Engineering
+ </div>
+ <div class="neo-pill bg-black text-white px-6 py-4 font-mono text-lg font-bold uppercase border-dashed border-white border-2 outline outline-4 outline-black cursor-default">
+ AI Model Training (In Progress)
+ </div>
+ </div>
+ </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="space-y-12">
-            <h2 class="font-header text-4xl md:text-5xl uppercase inline-block bg-neo-blue px-4 py-2 neo-border transform rotate-1 shadow-[6px_6px_0_0_var(--neo-color)]">
-                Projects
-            </h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 pt-6">
-                <!-- Project 1 -->
-                <div class="neo-card bg-neo-yellow p-8 flex flex-col h-full hover:-translate-y-2 hover:-translate-x-2 hover:shadow-[16px_16px_0_0_var(--neo-color)]">
-                    <!-- Project Image/Placeholder -->
-                    <div class="w-full h-48 bg-white neo-border mb-6 overflow-hidden flex items-center justify-center relative group">
-                        <div class="absolute inset-0 bg-stripes opacity-30"></div>
-                        <span class="font-header text-3xl z-10 bg-white px-4 py-2 neo-border shadow-[4px_4px_0_0_var(--neo-color)] group-hover:scale-110 transition-transform">DOLPHIN</span>
-                    </div>
-                    
-                    <h3 class="font-header text-3xl mb-4 uppercase">Dolphin Hotel</h3>
-                    <p class="font-mono text-lg font-bold mb-8 flex-grow">
-                        A live web project showcasing my foundational web deployment skills.
-                    </p>
-                    <a href="https://dolphinhotel.vercel.app" target="_blank" rel="noopener noreferrer" class="neo-btn bg-white text-center py-4 text-xl font-header uppercase w-full hover:bg-black hover:text-white">
-                        Visit Site &rarr;
-                    </a>
-                </div>
+ <!-- Projects Section -->
+ <section id="projects" class="space-y-12">
+ <h2 class="font-header text-4xl md:text-5xl uppercase inline-block bg-neo-blue px-4 py-2 neo-border transform rotate-1 shadow-[6px_6px_0_0_var(--neo-color)]">
+ Projects
+ </h2>
+ 
+ <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 pt-6">
+ <!-- Project 1 -->
+ <div class="neo-card bg-neo-yellow p-8 flex flex-col h-full hover:-translate-y-2 hover:-translate-x-2 hover:shadow-[16px_16px_0_0_var(--neo-color)]">
+ <!-- Project Image/Placeholder -->
+ <div class="w-full h-48 bg-white neo-border mb-6 overflow-hidden flex items-center justify-center relative group">
+ <div class="absolute inset-0 bg-stripes opacity-30"></div>
+ <span class="font-header text-3xl z-10 bg-white px-4 py-2 neo-border shadow-[4px_4px_0_0_var(--neo-color)] group-hover:scale-110 transition-transform">DOLPHIN</span>
+ </div>
+ 
+ <h3 class="font-header text-3xl mb-4 uppercase">Dolphin Hotel</h3>
+ <p class="font-mono text-lg font-bold mb-8 flex-grow">
+ A live web project showcasing my foundational web deployment skills.
+ </p>
+ <a href="https://dolphinhotel.vercel.app" target="_blank" rel="noopener noreferrer" class="neo-btn bg-white text-center py-4 text-xl font-header uppercase w-full hover:bg-black hover:text-white">
+ Visit Site &rarr;
+ </a>
+ </div>
 
-                <!-- Project 2 -->
-                <div class="neo-card bg-neo-pink p-8 flex flex-col h-full hover:-translate-y-2 hover:-translate-x-2 hover:shadow-[16px_16px_0_0_var(--neo-color)]">
-                     <!-- Project Image/Placeholder -->
-                     <div class="w-full h-48 bg-white neo-border mb-6 overflow-hidden flex items-center justify-center relative group">
-                        <div class="absolute inset-0 bg-black opacity-10"></div>
-                        <span class="font-header text-3xl z-10 bg-black text-neo-pink px-4 py-2 neo-border shadow-[4px_4px_0_0_#fff] group-hover:scale-110 transition-transform">AI APP</span>
-                    </div>
+ <!-- Project 2 -->
+ <div class="neo-card bg-neo-pink p-8 flex flex-col h-full hover:-translate-y-2 hover:-translate-x-2 hover:shadow-[16px_16px_0_0_var(--neo-color)]">
+ <!-- Project Image/Placeholder -->
+ <div class="w-full h-48 bg-white neo-border mb-6 overflow-hidden flex items-center justify-center relative group">
+ <div class="absolute inset-0 bg-black opacity-10"></div>
+ <span class="font-header text-3xl z-10 bg-black text-neo-pink px-4 py-2 neo-border shadow-[4px_4px_0_0_#fff] group-hover:scale-110 transition-transform">AI APP</span>
+ </div>
 
-                    <h3 class="font-header text-3xl mb-4 uppercase text-black dark:text-white">AI App Development</h3>
-                    <p class="font-mono text-lg font-bold mb-8 flex-grow text-black dark:text-white">
-                        Currently transitioning from core Python to building real-world AI applications using LLMs and Neural Networks.
-                    </p>
-                    <div class="neo-btn bg-white opacity-60 text-center py-4 text-xl font-header uppercase w-full cursor-not-allowed">
-                        In Development
-                    </div>
-                </div>
-            </div>
-        </section>
+ <h3 class="font-header text-3xl mb-4 uppercase text-black ">AI App Development</h3>
+ <p class="font-mono text-lg font-bold mb-8 flex-grow text-black ">
+ Currently transitioning from core Python to building real-world AI applications using LLMs and Neural Networks.
+ </p>
+ <div class="neo-btn bg-white opacity-60 text-center py-4 text-xl font-header uppercase w-full cursor-not-allowed">
+ In Development
+ </div>
+ </div>
+ </div>
+ </section>
 
-        <!-- Join Community Section -->
-        <section id="community" class="space-y-12">
-            <h2 class="font-header text-4xl md:text-5xl uppercase inline-block bg-neo-yellow px-4 py-2 neo-border transform -rotate-2 shadow-[6px_6px_0_0_var(--neo-color)]">
-                Join Community
-            </h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 pt-6">
-                <!-- WhatsApp Card -->
-                <div class="neo-card bg-neo-green p-8 flex flex-col h-full items-center text-center">
-                    <div class="w-20 h-20 bg-white rounded-full neo-border flex items-center justify-center mb-6 shadow-[4px_4px_0_0_var(--neo-color)]">
-                        <span class="text-4xl">💬</span>
-                    </div>
-                    <h3 class="font-header text-3xl mb-4 uppercase">Direct Chat</h3>
-                    <p class="font-mono text-lg font-bold mb-8 flex-grow">
-                        Connect with me instantly on WhatsApp to discuss AI, startups, or collaborations.
-                    </p>
-                    <a href="https://wa.me/918159923266" target="_blank" rel="noopener noreferrer" class="neo-btn bg-white text-center py-4 text-xl font-header uppercase w-full hover:bg-black hover:text-white">
-                        WhatsApp Me &rarr;
-                    </a>
-                </div>
+ <!-- Join Community Section -->
+ <section id="community" class="space-y-12">
+ <h2 class="font-header text-4xl md:text-5xl uppercase inline-block bg-neo-yellow px-4 py-2 neo-border transform -rotate-2 shadow-[6px_6px_0_0_var(--neo-color)]">
+ Join Community
+ </h2>
+ 
+ <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 pt-6">
+ <!-- WhatsApp Card -->
+ <div class="neo-card bg-neo-green p-8 flex flex-col h-full items-center text-center">
+ <div class="w-20 h-20 bg-white rounded-full neo-border flex items-center justify-center mb-6 shadow-[4px_4px_0_0_var(--neo-color)]">
+ <span class="text-4xl">💬</span>
+ </div>
+ <h3 class="font-header text-3xl mb-4 uppercase">Direct Chat</h3>
+ <p class="font-mono text-lg font-bold mb-8 flex-grow">
+ Connect with me instantly on WhatsApp to discuss AI, startups, or collaborations.
+ </p>
+ <a href="https://wa.me/918159923266" target="_blank" rel="noopener noreferrer" class="neo-btn bg-white text-center py-4 text-xl font-header uppercase w-full hover:bg-black hover:text-white">
+ WhatsApp Me &rarr;
+ </a>
+ </div>
 
-                <!-- Email Card -->
-                <div class="neo-card bg-white p-8 flex flex-col h-full items-center text-center">
-                    <div class="w-20 h-20 bg-neo-pink rounded-full neo-border flex items-center justify-center mb-6 shadow-[4px_4px_0_0_var(--neo-color)]">
-                        <span class="text-4xl text-white">✉️</span>
-                    </div>
-                    <h3 class="font-header text-3xl mb-4 uppercase">Email</h3>
-                    <p class="font-mono text-lg font-bold mb-8 flex-grow">
-                        For longer inquiries, mentorship, or formal proposals, drop me an email.
-                    </p>
-                    <a href="mailto:kingshukbiswas797@email.com" class="neo-btn bg-neo-blue text-center py-4 text-xl font-header uppercase w-full hover:bg-black hover:text-white">
-                        kingshukbiswas797@email.com
-                    </a>
-                </div>
-            </div>
-        </section>
+ <!-- Email Card -->
+ <div class="neo-card bg-white p-8 flex flex-col h-full items-center text-center">
+ <div class="w-20 h-20 bg-neo-pink rounded-full neo-border flex items-center justify-center mb-6 shadow-[4px_4px_0_0_var(--neo-color)]">
+ <span class="text-4xl text-white">✉️</span>
+ </div>
+ <h3 class="font-header text-3xl mb-4 uppercase">Email</h3>
+ <p class="font-mono text-lg font-bold mb-8 flex-grow">
+ For longer inquiries, mentorship, or formal proposals, drop me an email.
+ </p>
+ <a href="mailto:kingshukbiswas797@email.com" class="neo-btn bg-neo-blue text-center py-4 text-xl font-header uppercase w-full hover:bg-black hover:text-white">
+ kingshukbiswas797@email.com
+ </a>
+ </div>
+ </div>
+ </section>
 
-    </main>
+ </main>
 
-    <!-- Footer -->
-    <footer class="border-t-[6px] border-black dark:border-white mt-20 bg-neo-yellow">
-        <div class="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex items-center gap-4">
-                <div class="w-12 h-12 bg-black rounded-full neo-border shadow-[4px_4px_0_0_#fff] border-white dark:border-[#444] outline outline-4 outline-black flex justify-center items-center overflow-hidden">
-                    <span class="text-white font-header text-xl">K</span>
-                </div>
-                <p class="font-header text-2xl uppercase tracking-widest text-center md:text-left">
-                    Built by Koustav.<br class="md:hidden"/> Mentored by AI.
-                </p>
-            </div>
-            
-            <div class="font-mono text-lg font-bold flex gap-6 mt-4 md:mt-0">
-                <a href="#about" class="hover:underline hover:text-neo-pink hover:bg-black hover:text-white px-2 py-1 transition-colors">/About</a>
-                <a href="#projects" class="hover:underline hover:text-neo-pink hover:bg-black hover:text-white px-2 py-1 transition-colors">/Projects</a>
-            </div>
-        </div>
-    </footer>
+ <!-- Footer -->
+ <footer class="border-t-[6px] border-black mt-20 bg-neo-yellow">
+ <div class="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+ <div class="flex items-center gap-4">
+ <div class="w-12 h-12 bg-black rounded-full neo-border shadow-[4px_4px_0_0_#fff] border-white outline outline-4 outline-black flex justify-center items-center overflow-hidden">
+ <span class="text-white font-header text-xl">K</span>
+ </div>
+ <p class="font-header text-2xl uppercase tracking-widest text-center md:text-left">
+ Built by Koustav.<br class="md:hidden"/> Mentored by AI.
+ </p>
+ </div>
+ 
+ <div class="font-mono text-lg font-bold flex gap-6 mt-4 md:mt-0">
+ <a href="#about" class="hover:underline hover:text-neo-pink hover:bg-black hover:text-white px-2 py-1 transition-colors">/About</a>
+ <a href="#projects" class="hover:underline hover:text-neo-pink hover:bg-black hover:text-white px-2 py-1 transition-colors">/Projects</a>
+ </div>
+ </div>
+ </footer>
 
-    <script>
-        const text1 = "Hi I am ";
-        const text2 = "Koustav Biswas";
-        let i = 0;
-        let j = 0;
-        const speed = 100; // typing speed in milliseconds
+ <script>
+ const text1 = "Hi I am ";
+ const text2 = "Koustav Biswas";
+ let i = 0;
+ let j = 0;
+ const speed = 100; // typing speed in milliseconds
 
-        function typeWriter1() {
-            if (i < text1.length) {
-                document.getElementById("type-text-1").innerHTML += text1.charAt(i);
-                i++;
-                setTimeout(typeWriter1, speed);
-            } else {
-                // Reveal the box and start typing name
-                document.getElementById("type-box").classList.remove("invisible");
-                setTimeout(typeWriter2, speed);
-            }
-        }
+ function typeWriter1() {
+ if (i < text1.length) {
+ document.getElementById("type-text-1").innerHTML += text1.charAt(i);
+ i++;
+ setTimeout(typeWriter1, speed);
+ } else {
+ // Reveal the box and start typing name
+ document.getElementById("type-box").classList.remove("invisible");
+ setTimeout(typeWriter2, speed);
+ }
+ }
 
-        function typeWriter2() {
-            if (j < text2.length) {
-                document.getElementById("type-text-2").innerHTML += text2.charAt(j);
-                j++;
-                setTimeout(typeWriter2, speed);
-            }
-        }
+ function typeWriter2() {
+ if (j < text2.length) {
+ document.getElementById("type-text-2").innerHTML += text2.charAt(j);
+ j++;
+ setTimeout(typeWriter2, speed);
+ }
+ }
 
-                // Dark Mode Logic
-        const themeToggleBtn = document.getElementById('dark-mode-toggle');
-        
-        function updateTheme(isDark) {
-            if (isDark) {
-                document.documentElement.classList.add('dark');
-                themeToggleBtn.innerHTML = '🌙';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-                themeToggleBtn.innerHTML = '☀️';
-                localStorage.setItem('theme', 'light');
-            }
-        }
-        
-        // Initial load
-        const storedTheme = localStorage.getItem('theme');
-        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        
-        if (storedTheme === 'dark' || (!storedTheme && systemDark)) {
-            updateTheme(true);
-        } else {
-            updateTheme(false);
-        }
-        
-        themeToggleBtn.addEventListener('click', () => {
-            const isDark = document.documentElement.classList.contains('dark');
-            updateTheme(!isDark);
-        });
+ // Dark Mode Logic
+ const themeToggleBtn = document.getElementById('dark-mode-toggle');
+ 
+ function updateTheme(isDark) {
+ if (isDark) {
+ document.documentElement.classList.add('dark');
+ themeToggleBtn.innerHTML = '🌙';
+ localStorage.setItem('theme', 'dark');
+ } else {
+ document.documentElement.classList.remove('dark');
+ themeToggleBtn.innerHTML = '☀️';
+ localStorage.setItem('theme', 'light');
+ }
+ }
+ 
+ // Initial load
+ const storedTheme = localStorage.getItem('theme');
+ const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+ 
+ if (storedTheme === 'dark' || (!storedTheme && systemDark)) {
+ updateTheme(true);
+ } else {
+ updateTheme(false);
+ }
+ 
+ themeToggleBtn.addEventListener('click', () => {
+ const isDark = document.documentElement.classList.contains('dark');
+ updateTheme(!isDark);
+ });
 
-        // NO SIGNAL Intro Animation Logic
-        const introScreen = document.getElementById('intro-screen');
-        const staticNoise = document.getElementById('static-noise');
-        const scanlines = document.getElementById('scanlines');
-        const introContent = document.getElementById('intro-content');
-        const noSignalText = document.getElementById('no-signal-text');
-        const statusText = document.getElementById('status-text');
+ // NO SIGNAL Intro Animation Logic
+ const introScreen = document.getElementById('intro-screen');
+ const staticNoise = document.getElementById('static-noise');
+ const scanlines = document.getElementById('scanlines');
+ const introContent = document.getElementById('intro-content');
+ const noSignalText = document.getElementById('no-signal-text');
+ const statusText = document.getElementById('status-text');
 
-        // Check for reduced motion
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ // Check for reduced motion
+ const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        if (prefersReducedMotion) {
-            introScreen.remove();
-            document.body.classList.remove('overflow-hidden');
-            setTimeout(typeWriter1, 500);
-        } else {
-            // Sequence timings
-            const statuses = ['NO SIGNAL', 'SIGNAL LOST', 'RECONNECTING...', 'SYNC FAILED', 'SEARCHING...'];
-            let statusIndex = 0;
+ if (prefersReducedMotion) {
+ introScreen.remove();
+ document.body.classList.remove('overflow-hidden');
+ setTimeout(typeWriter1, 500);
+ } else {
+ // Sequence timings
+ const statuses = ['NO SIGNAL', 'SIGNAL LOST', 'RECONNECTING...', 'SYNC FAILED', 'SEARCHING...'];
+ let statusIndex = 0;
 
-            // 0.0s - 0.5s: Start subtle static
-            setTimeout(() => {
-                staticNoise.style.opacity = '0.15';
-            }, 100);
+ // 0.0s - 0.5s: Start subtle static
+ setTimeout(() => {
+ staticNoise.style.opacity = '0.15';
+ }, 100);
 
-            // Animate noise translation randomly
-            let noiseInterval = setInterval(() => {
-                staticNoise.style.transform = `translate(${Math.floor(Math.random() * 10 - 5)}%, ${Math.floor(Math.random() * 10 - 5)}%)`;
-            }, 40);
+ // Animate noise translation randomly
+ let noiseInterval = setInterval(() => {
+ staticNoise.style.transform = `translate(${Math.floor(Math.random() * 10 - 5)}%, ${Math.floor(Math.random() * 10 - 5)}%)`;
+ }, 40);
 
-            // 0.5s: Reveal Scanlines & Text
-            setTimeout(() => {
-                scanlines.style.opacity = '1';
-                introContent.style.opacity = '1';
-            }, 500);
+ // 0.5s: Reveal Scanlines & Text
+ setTimeout(() => {
+ scanlines.style.opacity = '1';
+ introContent.style.opacity = '1';
+ }, 500);
 
-            // Cycle text intentionally
-            let textInterval = setInterval(() => {
-                statusIndex = (statusIndex + 1) % statuses.length;
-                statusText.innerText = statuses[statusIndex];
-            }, 400);
+ // Cycle text intentionally
+ let textInterval = setInterval(() => {
+ statusIndex = (statusIndex + 1) % statuses.length;
+ statusText.innerText = statuses[statusIndex];
+ }, 400);
 
-            // Jitter / Tearing glitches
-            let glitchInterval = setInterval(() => {
-                if (Math.random() > 0.6) {
-                    noSignalText.style.transform = `translate(${Math.random() * 20 - 10}px, 0) skewX(${Math.random() * 10 - 5}deg)`;
-                    setTimeout(() => {
-                        noSignalText.style.transform = 'none';
-                    }, 50 + Math.random() * 100);
-                }
-            }, 150);
+ // Jitter / Tearing glitches
+ let glitchInterval = setInterval(() => {
+ if (Math.random() > 0.6) {
+ noSignalText.style.transform = `translate(${Math.random() * 20 - 10}px, 0) skewX(${Math.random() * 10 - 5}deg)`;
+ setTimeout(() => {
+ noSignalText.style.transform = 'none';
+ }, 50 + Math.random() * 100);
+ }
+ }, 150);
 
-            // 2.5s: Freeze, cut to black, vertical line reveal
-            setTimeout(() => {
-                // Freeze
-                clearInterval(noiseInterval);
-                clearInterval(textInterval);
-                clearInterval(glitchInterval);
+ // 2.5s: Freeze, cut to black, vertical line reveal
+ setTimeout(() => {
+ // Freeze
+ clearInterval(noiseInterval);
+ clearInterval(textInterval);
+ clearInterval(glitchInterval);
 
-                // Cut to black
-                introContent.style.display = 'none';
-                staticNoise.style.display = 'none';
-                scanlines.style.display = 'none';
+ // Cut to black
+ introContent.style.display = 'none';
+ staticNoise.style.display = 'none';
+ scanlines.style.display = 'none';
 
-                // Sharp horizontal white line
-                setTimeout(() => {
-                    introScreen.classList.remove('bg-black');
-                    introScreen.classList.add('bg-transparent');
-                    introScreen.innerHTML = `
-                        <div id="tv-top" class="absolute top-0 left-0 w-full h-1/2 bg-black origin-top transition-transform duration-300 ease-in"></div>
-                        <div id="tv-bottom" class="absolute bottom-0 left-0 w-full h-1/2 bg-black origin-bottom transition-transform duration-300 ease-in"></div>
-                        <div id="tv-line" class="absolute top-1/2 left-0 w-full h-[4px] bg-white transform -translate-y-1/2 z-10 transition-all duration-300 ease-in shadow-[0_0_20px_#fff]"></div>
-                    `;
+ // Sharp horizontal white line
+ setTimeout(() => {
+ introScreen.classList.remove('bg-black');
+ introScreen.classList.add('bg-transparent');
+ introScreen.innerHTML = `
+ <div id="tv-top" class="absolute top-0 left-0 w-full h-1/2 bg-black origin-top transition-transform duration-300 ease-in"></div>
+ <div id="tv-bottom" class="absolute bottom-0 left-0 w-full h-1/2 bg-black origin-bottom transition-transform duration-300 ease-in"></div>
+ <div id="tv-line" class="absolute top-1/2 left-0 w-full h-[4px] bg-white transform -translate-y-1/2 z-10 transition-all duration-300 ease-in shadow-[0_0_20px_#fff]"></div>
+ `;
 
-                    setTimeout(() => {
-                        // Flash out
-                        const tvLine = document.getElementById('tv-line');
-                        const tvTop = document.getElementById('tv-top');
-                        const tvBottom = document.getElementById('tv-bottom');
-                        
-                        tvLine.style.height = '100vh';
-                        tvLine.style.opacity = '0';
-                        tvTop.style.transform = 'scaleY(0)';
-                        tvBottom.style.transform = 'scaleY(0)';
-                        
-                        setTimeout(() => {
-                            introScreen.remove();
-                            document.body.classList.remove('overflow-hidden');
-                            // Start typewriter after intro
-                            setTimeout(typeWriter1, 300);
-                        }, 300);
-                    }, 150);
+ setTimeout(() => {
+ // Flash out
+ const tvLine = document.getElementById('tv-line');
+ const tvTop = document.getElementById('tv-top');
+ const tvBottom = document.getElementById('tv-bottom');
+ 
+ tvLine.style.height = '100vh';
+ tvLine.style.opacity = '0';
+ tvTop.style.transform = 'scaleY(0)';
+ tvBottom.style.transform = 'scaleY(0)';
+ 
+ setTimeout(() => {
+ introScreen.remove();
+ document.body.classList.remove('overflow-hidden');
+ // Start typewriter after intro
+ setTimeout(typeWriter1, 300);
+ }, 300);
+ }, 150);
 
-                }, 100);
-            }, 2500);
-        }
-    </script>
+ }, 100);
+ }, 2500);
+ }
+ </script>
 </body>
 </html>
+
 
 
