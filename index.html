@@ -255,19 +255,62 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
     }
+
+    /* Venom Symbiote Shutter Switch */
+    .venom-track {
+      background: var(--neu-surface-sunken);
+      border: 1px solid rgba(197, 200, 212, 0.4);
+      box-shadow: var(--shadow-inset-md);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    html.dark .venom-track {
+      background: radial-gradient(ellipse at center, #161922 0%, #0A0C10 100%);
+      border: 1px solid rgba(129, 140, 248, 0.28);
+      box-shadow: inset 4px 4px 8px #050608, inset -4px -4px 8px rgba(255, 255, 255, 0.05), 0 0 18px rgba(129, 140, 248, 0.22);
+    }
+    .venom-knob {
+      background: radial-gradient(circle at 35% 35%, #FFFFFF 0%, #EEF1F7 70%, #D8DCE6 100%);
+      box-shadow: var(--shadow-raised-sm);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+      will-change: transform;
+    }
+    html.dark .venom-knob {
+      background: radial-gradient(circle at 35% 35%, #2D313D 0%, #111318 60%, #060709 100%);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.9), 0 0 12px rgba(129, 140, 248, 0.4), inset 1px 1px 3px rgba(255, 255, 255, 0.35);
+    }
+    .venom-knob.gooey-active {
+      animation: venomSquish 0.42s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    @keyframes venomSquish {
+      0% { transform: scale(1, 1); }
+      35% { transform: scale(1.28, 0.78); }
+      70% { transform: scale(0.92, 1.12); }
+      100% { transform: scale(1, 1); }
+    }
+    .venom-eye {
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      fill: #8D96A8;
+    }
+    html.dark .venom-eye {
+      fill: #FFFFFF;
+      filter: drop-shadow(0 0 3px #FFFFFF) drop-shadow(0 0 7px #818CF8);
+    }
   </style>
 </head>
 <body class="font-sans antialiased selection:bg-indigo-500 selection:text-white overflow-x-hidden min-h-screen flex flex-col overflow-hidden">
 
-  <!-- Dark Mode Toggle Shutter -->
-  <button id="dark-mode-toggle" class="fixed top-6 right-6 z-50 w-24 h-12 neu-track flex items-center px-[5px] cursor-pointer transition-all focus:outline-none" aria-label="Toggle Dark Mode">
-    <div id="shutter-knob" class="w-9 h-9 rounded-full bg-[var(--neu-surface)] shadow-[var(--shadow-raised-sm)] border border-white/60 dark:border-white/10 flex items-center justify-center transition-transform duration-300 ease-[cubic-bezier(0.68,-0.55,0.26,1.55)]">
-      <!-- Subtle tactile grip indicator -->
-      <div class="flex gap-[3px]">
-        <div class="w-[3px] h-3.5 rounded-full bg-slate-400 dark:bg-slate-500"></div>
-        <div class="w-[3px] h-3.5 rounded-full bg-indigo-500"></div>
-        <div class="w-[3px] h-3.5 rounded-full bg-slate-400 dark:bg-slate-500"></div>
-      </div>
+  <!-- Dark Mode Toggle Shutter (Venom Symbiote Edition) -->
+  <button id="dark-mode-toggle" class="fixed top-6 right-6 z-50 w-24 h-12 venom-track rounded-full flex items-center px-[5px] cursor-pointer focus:outline-none" aria-label="Toggle Dark Mode">
+    <div id="shutter-knob" class="w-9 h-9 rounded-full venom-knob flex items-center justify-center">
+      <!-- Venom Symbiote Eyes -->
+      <svg class="w-6 h-4 pointer-events-none" viewBox="0 0 28 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Left Venom Eye -->
+        <path class="venom-eye" d="M3 11.5 C3.8 7.5 7.5 3.2 12.8 3.8 C10.8 7.2 8.2 11.8 4.2 12.8 C3.4 12.8 2.6 12.2 3 11.5 Z" />
+        <!-- Right Venom Eye -->
+        <path class="venom-eye" d="M25 11.5 C24.2 7.5 20.5 3.2 15.2 3.8 C17.2 7.2 19.8 11.8 23.8 12.8 C24.6 12.8 25.4 12.2 25 11.5 Z" />
+      </svg>
     </div>
   </button>
 
@@ -514,11 +557,16 @@
       }
     }
 
-    // Dark Mode Logic
+    // Dark Mode Logic (Venom Symbiote Toggle)
     const themeToggleBtn = document.getElementById('dark-mode-toggle');
     
-    function updateTheme(isDark) {
+    function updateTheme(isDark, animateSquish = false) {
       const knob = document.getElementById('shutter-knob');
+      if (animateSquish && knob) {
+        knob.classList.remove('gooey-active');
+        void knob.offsetWidth; // force reflow for snappy re-trigger
+        knob.classList.add('gooey-active');
+      }
       if (isDark) {
         document.documentElement.classList.add('dark');
         if (knob) knob.style.transform = 'translateX(50px)';
@@ -535,14 +583,14 @@
     const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
     if (storedTheme === 'dark' || (!storedTheme && systemDark)) {
-      updateTheme(true);
+      updateTheme(true, false);
     } else {
-      updateTheme(false);
+      updateTheme(false, false);
     }
     
     themeToggleBtn.addEventListener('click', () => {
       const isDark = document.documentElement.classList.contains('dark');
-      updateTheme(!isDark);
+      updateTheme(!isDark, true);
     });
 
     // NO SIGNAL Intro Animation Logic
