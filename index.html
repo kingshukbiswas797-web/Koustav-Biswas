@@ -256,124 +256,223 @@
       letter-spacing: 0.08em;
     }
 
-    /* Venom Symbiote Liquid Shutter with Bioluminescent Glow */
-    .liquid-container {
-      filter: url(#liquid-goo);
-    }
-    .venom-track {
-      background: var(--neu-surface-sunken);
-      border: 1px solid rgba(197, 200, 212, 0.4);
-      box-shadow: var(--shadow-inset-md);
+    /* Bioluminescent Liquid Glass Vial Toggle */
+    .glass-capsule {
+      width: 108px;
+      height: 44px;
+      border-radius: 9999px;
+      background: rgba(235, 238, 245, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 
+        inset 0 2px 5px rgba(255, 255, 255, 0.9),
+        inset 0 -3px 6px rgba(180, 186, 200, 0.35),
+        var(--shadow-raised-sm);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    html.dark .venom-track {
-      background: radial-gradient(ellipse at center, #0F131C 0%, #05060A 100%);
-      border: 1px solid rgba(0, 240, 255, 0.45);
-      box-shadow: inset 4px 4px 8px #000, inset -4px -4px 8px rgba(255, 255, 255, 0.05), 0 0 20px rgba(0, 240, 255, 0.35);
+    html.dark .glass-capsule {
+      background: rgba(12, 16, 26, 0.85);
+      border: 1.5px solid rgba(0, 240, 255, 0.5);
+      box-shadow: 
+        inset 0 2px 5px rgba(255, 255, 255, 0.15),
+        inset 0 -3px 8px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(0, 240, 255, 0.4),
+        0 0 45px rgba(129, 140, 248, 0.25);
     }
-    .venom-knob {
-      background: radial-gradient(circle at 35% 35%, #FFFFFF 0%, #EEF1F7 70%, #D8DCE6 100%);
-      box-shadow: var(--shadow-raised-sm);
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
-      will-change: transform;
+
+    /* Glass Specular Convex Reflection */
+    .glass-specular {
+      position: absolute;
+      top: 2px;
+      left: 12px;
+      right: 12px;
+      height: 8px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0) 100%);
+      border-radius: 9999px;
+      pointer-events-none;
+      z-index: 20;
     }
-    html.dark .venom-knob {
-      background: radial-gradient(circle at 35% 35%, #252D3D 0%, #0C0F16 65%, #020305 100%);
-      border: 1.5px solid rgba(0, 240, 255, 0.6);
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.9), 0 0 16px rgba(0, 240, 255, 0.7), inset 1px 1px 3px rgba(255, 255, 255, 0.4);
+    html.dark .glass-specular {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 100%);
     }
-    .venom-knob.gooey-active {
-      animation: venomSquish 0.42s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* Liquid Layer & Meniscus Wave Oscillations */
+    .liquid-wave-animate {
+      animation: waveOscillate 4s ease-in-out infinite;
+      transform-origin: 54px 28px;
     }
-    @keyframes venomSquish {
-      0% { transform: scale(1, 1); }
-      30% { transform: scale(1.35, 0.75); }
-      65% { transform: scale(0.9, 1.15); }
-      100% { transform: scale(1, 1); }
+    @keyframes waveOscillate {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-1.5px) rotate(1deg); }
     }
-    #liquid-droplet {
-      background: radial-gradient(circle at 35% 35%, #FFFFFF 0%, #E2E5EC 100%);
-      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* Floating Bioluminescent Bubbles */
+    .bio-bubble {
+      position: absolute;
+      border-radius: 9999px;
+      background: #FFFFFF;
+      pointer-events-none;
+      z-index: 12;
+      transition: all 0.5s ease;
     }
-    html.dark #liquid-droplet {
-      background: radial-gradient(circle at 35% 35%, #1C2433 0%, #080A0F 100%);
-      box-shadow: 0 0 14px rgba(0, 240, 255, 0.5);
+    html.dark .bio-bubble {
+      background: #E0F7FF;
+      box-shadow: 0 0 6px #00F0FF, 0 0 10px #818CF8;
     }
-    .venom-eye {
-      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-      fill: #8D96A8;
+    .bubble-1 {
+      width: 4px;
+      height: 4px;
+      animation: bubbleRise1 3.2s ease-in-out infinite;
     }
-    html.dark .venom-eye {
-      fill: #FFFFFF;
-      filter: drop-shadow(0 0 3px #FFFFFF) drop-shadow(0 0 8px #00F0FF) drop-shadow(0 0 14px #818CF8);
+    .bubble-2 {
+      width: 6px;
+      height: 6px;
+      animation: bubbleRise2 4.1s ease-in-out infinite 0.7s;
     }
-    #bio-aura {
+    .bubble-3 {
+      width: 3.5px;
+      height: 3.5px;
+      animation: bubbleRise3 2.8s ease-in-out infinite 1.4s;
+    }
+    @keyframes bubbleRise1 {
+      0% { transform: translate(0, 24px) scale(0.6); opacity: 0; }
+      25% { opacity: 0.9; }
+      80% { opacity: 0.9; }
+      100% { transform: translate(3px, -8px) scale(1.1); opacity: 0; }
+    }
+    @keyframes bubbleRise2 {
+      0% { transform: translate(0, 26px) scale(0.5); opacity: 0; }
+      30% { opacity: 0.95; }
+      85% { opacity: 0.95; }
+      100% { transform: translate(-3px, -10px) scale(1.2); opacity: 0; }
+    }
+    @keyframes bubbleRise3 {
+      0% { transform: translate(0, 22px) scale(0.7); opacity: 0; }
+      20% { opacity: 0.85; }
+      75% { opacity: 0.85; }
+      100% { transform: translate(2px, -6px) scale(1); opacity: 0; }
+    }
+
+    /* Slosh Wave Surge on Click */
+    .vial-slosh {
+      animation: vialSlosh 0.65s cubic-bezier(0.34, 1.45, 0.64, 1);
+    }
+    @keyframes vialSlosh {
+      0% { transform: scale(1); }
+      25% { transform: scale(1.05, 0.94); }
+      55% { transform: scale(0.97, 1.04); }
+      100% { transform: scale(1); }
+    }
+
+    /* Embedded Submerged Glyphs */
+    .vial-glyph {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 13px;
+      z-index: 15;
+      pointer-events-none;
+      transition: all 0.4s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .glyph-sun {
+      left: 12px;
+      color: #0284C7;
+      opacity: 0.9;
+    }
+    .glyph-moon {
+      right: 12px;
+      color: #94A3B8;
+      opacity: 0.6;
+    }
+    html.dark .glyph-sun {
+      color: #64748B;
+      opacity: 0.4;
+    }
+    html.dark .glyph-moon {
+      color: #FFFFFF;
+      opacity: 1;
+      filter: drop-shadow(0 0 4px #00F0FF) drop-shadow(0 0 10px #818CF8);
+    }
+
+    #bio-vial-aura {
       background: radial-gradient(ellipse at center, rgba(0, 240, 255, 0.5) 0%, rgba(129, 140, 248, 0.3) 50%, transparent 75%);
-      filter: blur(8px);
-      animation: bioBreathing 3s ease-in-out infinite alternate;
+      filter: blur(10px);
+      animation: bioVialBreathing 3s ease-in-out infinite alternate;
     }
-    @keyframes bioBreathing {
+    @keyframes bioVialBreathing {
       0% {
-        transform: scale(0.95);
-        opacity: 0.65;
-        filter: blur(8px) drop-shadow(0 0 8px rgba(0, 240, 255, 0.4));
+        transform: scale(0.96);
+        opacity: 0.6;
+        filter: blur(10px) drop-shadow(0 0 8px rgba(0, 240, 255, 0.4));
       }
       100% {
-        transform: scale(1.15);
+        transform: scale(1.14);
         opacity: 1;
-        filter: blur(12px) drop-shadow(0 0 24px rgba(0, 240, 255, 0.8)) drop-shadow(0 0 36px rgba(129, 140, 248, 0.6));
-      }
-    }
-    .bio-burst {
-      animation: bioBurst 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    @keyframes bioBurst {
-      0% {
-        box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
-      }
-      50% {
-        box-shadow: 0 0 35px #00F0FF, 0 0 60px #818CF8, inset 0 0 12px rgba(0, 240, 255, 0.6);
-      }
-      100% {
-        box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+        filter: blur(14px) drop-shadow(0 0 24px rgba(0, 240, 255, 0.8)) drop-shadow(0 0 38px rgba(129, 140, 248, 0.6));
       }
     }
   </style>
 </head>
 <body class="font-sans antialiased selection:bg-indigo-500 selection:text-white overflow-x-hidden min-h-screen flex flex-col overflow-hidden">
 
-  <!-- Hidden SVG Gooey Filter for Liquid Meta-ball Physics -->
-  <svg class="sr-only" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;">
-    <defs>
-      <filter id="liquid-goo">
-        <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
-        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 20 -8" result="goo" />
-        <feComposite in="SourceGraphic" in2="goo" operator="atop" />
-      </filter>
-    </defs>
-  </svg>
+  <!-- Dark Mode Toggle (Static Cylindrical Bioluminescent Liquid Glass Capsule) -->
+  <button id="dark-mode-toggle" class="fixed top-6 right-6 z-50 glass-capsule flex items-center justify-center focus:outline-none select-none" aria-label="Toggle Dark Mode">
+    <!-- Bioluminescent Ambient Aura -->
+    <div id="bio-vial-aura" class="absolute -inset-1 rounded-full pointer-events-none transition-opacity duration-500 opacity-0 dark:opacity-100"></div>
 
-  <!-- Dark Mode Toggle Shutter (Liquid Bioluminescent Symbiote Edition) -->
-  <button id="dark-mode-toggle" class="fixed top-6 right-6 z-50 w-24 h-12 venom-track rounded-full flex items-center px-[5px] cursor-pointer focus:outline-none select-none" aria-label="Toggle Dark Mode">
-    <!-- Bioluminescent Breathing Aura -->
-    <div id="bio-aura" class="absolute -inset-1 rounded-full pointer-events-none transition-opacity duration-500 opacity-0 dark:opacity-100"></div>
+    <!-- Convex Glass Specular Reflection Sheen -->
+    <div class="glass-specular"></div>
 
-    <!-- Liquid Gooey Layer -->
-    <div class="liquid-container relative w-full h-full flex items-center">
-      <!-- Trailing fluid droplet that stretches and bridges during slide -->
-      <div id="liquid-droplet" class="absolute w-8 h-8 rounded-full pointer-events-none opacity-0"></div>
+    <!-- Submerged Mode Glyphs -->
+    <div class="vial-glyph glyph-sun">☀️</div>
+    <div class="vial-glyph glyph-moon">🌙</div>
 
-      <!-- Primary Knob with Venom Eyes -->
-      <div id="shutter-knob" class="w-9 h-9 rounded-full venom-knob flex items-center justify-center relative z-10">
-        <!-- Venom Symbiote Eyes -->
-        <svg class="w-6 h-4 pointer-events-none" viewBox="0 0 28 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Left Venom Eye -->
-          <path class="venom-eye" d="M3 11.5 C3.8 7.5 7.5 3.2 12.8 3.8 C10.8 7.2 8.2 11.8 4.2 12.8 C3.4 12.8 2.6 12.2 3 11.5 Z" />
-          <!-- Right Venom Eye -->
-          <path class="venom-eye" d="M25 11.5 C24.2 7.5 20.5 3.2 15.2 3.8 C17.2 7.2 19.8 11.8 23.8 12.8 C24.6 12.8 25.4 12.2 25 11.5 Z" />
-        </svg>
-      </div>
+    <!-- Floating Bioluminescent Bubbles -->
+    <div id="bubble-group" class="absolute inset-0 pointer-events-none z-10 transition-transform duration-500">
+      <div class="bio-bubble bubble-1" style="left: 24px; top: 10px;"></div>
+      <div class="bio-bubble bubble-2" style="left: 36px; top: 14px;"></div>
+      <div class="bio-bubble bubble-3" style="left: 48px; top: 8px;"></div>
+    </div>
+
+    <!-- Liquid Meniscus Waves (Pure Fluid SVG) -->
+    <div class="absolute inset-0 overflow-hidden rounded-full pointer-events-none z-[6]">
+      <svg class="w-full h-full liquid-wave-animate" viewBox="0 0 108 44" preserveAspectRatio="none">
+        <defs>
+          <!-- Light Mode Fluid Gradients -->
+          <linearGradient id="light-fluid-front" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.85" />
+            <stop offset="100%" stop-color="#0284C7" stop-opacity="0.95" />
+          </linearGradient>
+          <linearGradient id="light-fluid-back" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#7DD3FC" stop-opacity="0.4" />
+            <stop offset="100%" stop-color="#0369A1" stop-opacity="0.6" />
+          </linearGradient>
+
+          <!-- Dark Mode Bioluminescent Fluid Gradients -->
+          <linearGradient id="dark-fluid-front" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#00F0FF" stop-opacity="0.9" />
+            <stop offset="45%" stop-color="#818CF8" stop-opacity="0.85" />
+            <stop offset="100%" stop-color="#4338CA" stop-opacity="0.95" />
+          </linearGradient>
+          <linearGradient id="dark-fluid-back" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.45" />
+            <stop offset="60%" stop-color="#6366F1" stop-opacity="0.4" />
+            <stop offset="100%" stop-color="#312E81" stop-opacity="0.6" />
+          </linearGradient>
+        </defs>
+
+        <!-- Back wave (translucent depth) -->
+        <path id="wave-back" style="transition: d 0.6s cubic-bezier(0.34, 1.25, 0.64, 1), fill 0.5s ease;" d="M 0,14 Q 30,8 56,22 T 108,34 L 108,44 L 0,44 Z" fill="url(#light-fluid-back)" />
+        <!-- Front wave (primary meniscus) -->
+        <path id="wave-front" style="transition: d 0.6s cubic-bezier(0.34, 1.25, 0.64, 1), fill 0.5s ease;" d="M 0,10 Q 26,6 52,20 T 108,30 L 108,44 L 0,44 Z" fill="url(#light-fluid-front)" />
+      </svg>
     </div>
   </button>
 
@@ -620,58 +719,44 @@
       }
     }
 
-    // Dark Mode Logic (Liquid Bioluminescent Symbiote Toggle)
+    // Dark Mode Logic (Static Cylindrical Bioluminescent Liquid Vial)
     const themeToggleBtn = document.getElementById('dark-mode-toggle');
     
-    function updateTheme(isDark, animateSquish = false) {
-      const knob = document.getElementById('shutter-knob');
-      const droplet = document.getElementById('liquid-droplet');
-      
-      if (animateSquish) {
-        // Trigger bio-burst radiant aura
-        themeToggleBtn.classList.remove('bio-burst');
-        void themeToggleBtn.offsetWidth;
-        themeToggleBtn.classList.add('bio-burst');
+    function updateTheme(isDark, animateSlosh = false) {
+      const toggle = document.getElementById('dark-mode-toggle');
+      const waveFront = document.getElementById('wave-front');
+      const waveBack = document.getElementById('wave-back');
+      const bubbleGroup = document.getElementById('bubble-group');
 
-        // Trigger gooey squish on knob
-        if (knob) {
-          knob.classList.remove('gooey-active');
-          void knob.offsetWidth;
-          knob.classList.add('gooey-active');
-        }
-
-        // Animate fluid bridge droplet
-        if (droplet) {
-          droplet.style.opacity = '1';
-          if (isDark) {
-            droplet.style.transform = 'translateX(6px) scale(1.15)';
-            setTimeout(() => {
-              droplet.style.transform = 'translateX(28px) scale(0.9, 0.75)';
-              setTimeout(() => {
-                droplet.style.transform = 'translateX(50px) scale(0.5)';
-                droplet.style.opacity = '0';
-              }, 180);
-            }, 75);
-          } else {
-            droplet.style.transform = 'translateX(44px) scale(1.15)';
-            setTimeout(() => {
-              droplet.style.transform = 'translateX(22px) scale(0.9, 0.75)';
-              setTimeout(() => {
-                droplet.style.transform = 'translateX(0px) scale(0.5)';
-                droplet.style.opacity = '0';
-              }, 180);
-            }, 75);
-          }
-        }
+      if (animateSlosh && toggle) {
+        toggle.classList.remove('vial-slosh');
+        void toggle.offsetWidth; // force reflow for snappy surge animation
+        toggle.classList.add('vial-slosh');
       }
 
       if (isDark) {
         document.documentElement.classList.add('dark');
-        if (knob) knob.style.transform = 'translateX(50px)';
+        if (waveFront) {
+          waveFront.setAttribute('d', 'M 0,30 Q 56,20 82,6 T 108,10 L 108,44 L 0,44 Z');
+          waveFront.setAttribute('fill', 'url(#dark-fluid-front)');
+        }
+        if (waveBack) {
+          waveBack.setAttribute('d', 'M 0,34 Q 52,22 78,8 T 108,14 L 108,44 L 0,44 Z');
+          waveBack.setAttribute('fill', 'url(#dark-fluid-back)');
+        }
+        if (bubbleGroup) bubbleGroup.style.transform = 'translateX(40px)';
         localStorage.setItem('theme', 'dark');
       } else {
         document.documentElement.classList.remove('dark');
-        if (knob) knob.style.transform = 'translateX(0px)';
+        if (waveFront) {
+          waveFront.setAttribute('d', 'M 0,10 Q 26,6 52,20 T 108,30 L 108,44 L 0,44 Z');
+          waveFront.setAttribute('fill', 'url(#light-fluid-front)');
+        }
+        if (waveBack) {
+          waveBack.setAttribute('d', 'M 0,14 Q 30,8 56,22 T 108,34 L 108,44 L 0,44 Z');
+          waveBack.setAttribute('fill', 'url(#light-fluid-back)');
+        }
+        if (bubbleGroup) bubbleGroup.style.transform = 'translateX(0px)';
         localStorage.setItem('theme', 'light');
       }
     }
