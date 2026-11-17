@@ -1,515 +1,648 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Koustav | Future AI Entrepreneur</title>
- <!-- Google Fonts: Archivo Black, Space Grotesk, JetBrains Mono -->
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@400;700;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
- <!-- Tailwind CSS -->
- <script src="https://cdn.tailwindcss.com"></script>
- <script>
- tailwind.config = {
- darkMode: 'class',
- theme: {
- extend: {
- fontFamily: {
- 'header': ['"Archivo Black"', 'sans-serif'],
- 'sans': ['"Space Grotesk"', 'sans-serif'],
- 'mono': ['"JetBrains Mono"', 'monospace'],
- },
- colors: {
- 'neo-yellow': '#FF6200', /* Vibrant Orange */
- 'neo-blue': '#CCFF00', /* Lime Green */
- 'neo-pink': '#00D26A', /* Strong Green */
- 'neo-green': '#FFB085', /* Peach/Light Orange */
- 'neo-bg': '#FFF9F0', /* Pale Orange */
- },
- boxShadow: {
- 'neo': '8px 8px 0px 0px #000000',
- 'neo-sm': '4px 4px 0px 0px #000000',
- 'neo-btn': '6px 6px 0px 0px #000000',
- },
- keyframes: {
- marquee: {
- '0%': { transform: 'translateX(0%)' },
- '100%': { transform: 'translateX(-100%)' },
- },
- marquee2: {
- '0%': { transform: 'translateX(100%)' },
- '100%': { transform: 'translateX(0%)' },
- }
- },
- animation: {
- marquee: 'marquee 15s linear infinite',
- marquee2: 'marquee2 15s linear infinite',
- }
- }
- }
- }
- </script>
- <style>
- :root {
- --neo-color: #000;
- --neo-bg: #FFF9F0;
- --neo-text: #000;
- --stripe-color: #000;
- }
- html.dark {
- --neo-color: #000;
- --neo-bg: #8C8C8C;
- --neo-text: #000;
- --stripe-color: #000;
- }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Koustav | Future AI Entrepreneur</title>
+  <!-- Google Fonts: Space Grotesk, JetBrains Mono, Archivo Black -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@400;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            'header': ['"Space Grotesk"', 'sans-serif'],
+            'sans': ['"Space Grotesk"', 'sans-serif'],
+            'mono': ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            neu: {
+              bg: 'var(--neu-bg)',
+              surface: 'var(--neu-surface)',
+              'surface-raised': 'var(--neu-surface-raised)',
+              'surface-sunken': 'var(--neu-surface-sunken)',
+              primary: 'var(--neu-text-primary)',
+              secondary: 'var(--neu-text-secondary)',
+              muted: 'var(--neu-text-muted)',
+              accent: 'var(--neu-accent)',
+              'accent-hover': 'var(--neu-accent-hover)',
+              'accent-light': 'var(--neu-accent-light)',
+            }
+          },
+          boxShadow: {
+            'neu-sm': 'var(--shadow-raised-sm)',
+            'neu-md': 'var(--shadow-raised-md)',
+            'neu-lg': 'var(--shadow-raised-lg)',
+            'neu-xl': 'var(--shadow-raised-xl)',
+            'neu-inset-sm': 'var(--shadow-inset-sm)',
+            'neu-inset-md': 'var(--shadow-inset-md)',
+            'neu-inset-lg': 'var(--shadow-inset-lg)',
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-100%)' },
+            },
+            marquee2: {
+              '0%': { transform: 'translateX(100%)' },
+              '100%': { transform: 'translateX(0%)' },
+            }
+          },
+          animation: {
+            marquee: 'marquee 22s linear infinite',
+            marquee2: 'marquee2 22s linear infinite',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      /* Canvas & Surface Colors */
+      --neu-bg: #E8EAF0;
+      --neu-surface: #EDF0F5;
+      --neu-surface-raised: #EEF1F7;
+      --neu-surface-sunken: #E2E5EC;
+      
+      /* Text & Content Colors (WCAG AAA / AA Compliant) */
+      --neu-text-primary: #252936;    /* Contrast 10.51:1 on #E8EAF0 (AAA) */
+      --neu-text-secondary: #525866;  /* Contrast 5.23:1 on #E8EAF0 (AA) */
+      --neu-text-muted: #717B8C;
+      
+      /* Brand Accent Tokens */
+      --neu-accent: #4F46E5;          /* Indigo 600 - Contrast 5.56:1 on #E8EAF0 */
+      --neu-accent-hover: #4338CA;
+      --neu-accent-light: rgba(79, 70, 229, 0.12);
+      --neu-accent-glow: rgba(79, 70, 229, 0.25);
+      
+      /* Dual-Direction Soft Ambient Shadows */
+      --neu-shadow-light: #FFFFFF;
+      --neu-shadow-dark: #C5C8D4;
+      --neu-shadow-dark-subtle: #D0D4DF;
+      
+      /* Surface Shadow Levels */
+      --shadow-raised-sm: 3px 3px 6px var(--neu-shadow-dark), -3px -3px 6px var(--neu-shadow-light);
+      --shadow-raised-md: 6px 6px 12px var(--neu-shadow-dark), -6px -6px 12px var(--neu-shadow-light);
+      --shadow-raised-lg: 10px 10px 20px var(--neu-shadow-dark), -10px -10px 20px var(--neu-shadow-light);
+      --shadow-raised-xl: 14px 14px 28px var(--neu-shadow-dark), -14px -14px 28px var(--neu-shadow-light);
+      
+      /* Inset / Recessed Shadow Levels */
+      --shadow-inset-sm: inset 2px 2px 4px var(--neu-shadow-dark), inset -2px -2px 4px var(--neu-shadow-light);
+      --shadow-inset-md: inset 4px 4px 8px var(--neu-shadow-dark), inset -4px -4px 8px var(--neu-shadow-light);
+      --shadow-inset-lg: inset 6px 6px 12px var(--neu-shadow-dark), inset -6px -6px 12px var(--neu-shadow-light);
+      
+      /* Crisp Rim Light Highlights */
+      --neu-border-subtle: 1px solid rgba(255, 255, 255, 0.7);
+      --neu-border-inset: 1px solid rgba(197, 200, 212, 0.4);
+    }
 
- body {
- background-color: var(--neo-bg);
- color: var(--neo-text);
- transition: background-color 0.3s, color 0.3s;
- }
- 
- /* Base brutalist border */
- .neo-border {
- border: 4px solid var(--neo-color);
- }
- 
- /* Cards */
- .neo-card {
- border: 4px solid var(--neo-color);
- box-shadow: 8px 8px 0px 0px var(--neo-color);
- transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.2s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s;
- }
- .neo-card:hover {
- transform: translate(-4px, -4px);
- box-shadow: 12px 12px 0px 0px var(--neo-color);
- }
- 
- /* Buttons */
- .neo-btn {
- border: 4px solid var(--neo-color);
- box-shadow: 6px 6px 0px 0px var(--neo-color);
- transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, border-color 0.3s;
- display: inline-flex;
- align-items: center;
- justify-content: center;
- }
- .neo-btn:active {
- transform: translate(6px, 6px);
- box-shadow: 0px 0px 0px 0px var(--neo-color);
- }
- 
- /* Pills */
- .neo-pill {
- border: 3px solid var(--neo-color);
- box-shadow: 4px 4px 0px 0px var(--neo-color);
- transition: transform 0.1s ease-out, box-shadow 0.1s ease-out, border-color 0.3s;
- }
- .neo-pill:hover {
- transform: translate(-2px, -2px);
- box-shadow: 6px 6px 0px 0px var(--neo-color);
- }
+    html.dark {
+      --neu-bg: #1B1E26;
+      --neu-surface: #20242E;
+      --neu-surface-raised: #242934;
+      --neu-surface-sunken: #171A21;
+      
+      --neu-text-primary: #F1F4FA;    /* Contrast 13.8:1 on #1B1E26 (AAA) */
+      --neu-text-secondary: #9DA6B8;  /* Contrast 6.1:1 on #1B1E26 (AA) */
+      --neu-text-muted: #6C768A;
+      
+      --neu-accent: #818CF8;          /* Indigo 400 - Contrast 5.20:1 on #20242E (AA) */
+      --neu-accent-hover: #A5B4FC;
+      --neu-accent-light: rgba(129, 140, 248, 0.15);
+      --neu-accent-glow: rgba(129, 140, 248, 0.35);
+      
+      --neu-shadow-light: #252A36;
+      --neu-shadow-dark: #12141A;
+      --neu-shadow-dark-subtle: #161820;
+      
+      --neu-border-subtle: 1px solid rgba(255, 255, 255, 0.06);
+      --neu-border-inset: 1px solid rgba(0, 0, 0, 0.3);
+    }
 
- /* Diagonal stripes pattern utility */
- .bg-stripes {
- background-image: repeating-linear-gradient(
- 45deg,
- var(--stripe-color) 0,
- var(--stripe-color) 2px,
- transparent 2px,
- transparent 8px
- );
- }
- </style>
+    body {
+      background-color: var(--neu-bg);
+      color: var(--neu-text-primary);
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    /* Neumorphic Component System */
+    .neu-card, .neo-card {
+      background-color: var(--neu-surface);
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow-raised-lg);
+      border: var(--neu-border-subtle);
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease;
+    }
+    .neu-card:hover, .neo-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-raised-xl);
+    }
+
+    .neu-well {
+      background-color: var(--neu-surface-sunken);
+      border-radius: 1.25rem;
+      box-shadow: var(--shadow-inset-md);
+      border: var(--neu-border-inset);
+    }
+
+    .neu-btn, .neo-btn {
+      background-color: var(--neu-surface);
+      color: var(--neu-text-primary);
+      border-radius: 9999px;
+      box-shadow: var(--shadow-raised-md);
+      border: var(--neu-border-subtle);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .neu-btn:hover, .neo-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-raised-lg);
+      color: var(--neu-accent);
+    }
+    .neu-btn:active, .neo-btn:active {
+      transform: translateY(1px);
+      box-shadow: var(--shadow-inset-sm);
+      background-color: var(--neu-surface-sunken);
+    }
+
+    .neu-btn-primary {
+      background: linear-gradient(135deg, #4F46E5, #4338CA);
+      color: #FFFFFF !important;
+      box-shadow: 4px 4px 12px rgba(79, 70, 229, 0.35), -3px -3px 8px var(--neu-shadow-light);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+    .neu-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 6px 6px 16px rgba(79, 70, 229, 0.45), -4px -4px 10px var(--neu-shadow-light);
+      color: #FFFFFF !important;
+    }
+    .neu-btn-primary:active {
+      transform: translateY(1px);
+      box-shadow: inset 3px 3px 6px rgba(30, 27, 75, 0.6), inset -3px -3px 6px rgba(99, 102, 241, 0.3);
+    }
+
+    .neu-pill, .neo-pill {
+      background-color: var(--neu-surface);
+      color: var(--neu-text-primary);
+      border-radius: 9999px;
+      box-shadow: var(--shadow-raised-sm);
+      border: var(--neu-border-subtle);
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .neu-pill:hover, .neo-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-raised-md);
+      color: var(--neu-accent);
+    }
+
+    .neu-pill-inset {
+      background-color: var(--neu-surface-sunken);
+      color: var(--neu-accent);
+      border-radius: 9999px;
+      box-shadow: var(--shadow-inset-sm);
+      border: var(--neu-border-inset);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .neu-avatar-frame {
+      border-radius: 9999px;
+      background: linear-gradient(145deg, var(--neu-surface-raised), var(--neu-surface));
+      box-shadow: var(--shadow-raised-md);
+      border: var(--neu-border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .neu-track {
+      background-color: var(--neu-surface-sunken);
+      box-shadow: var(--shadow-inset-md);
+      border-radius: 9999px;
+      border: var(--neu-border-inset);
+    }
+
+    .neu-section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: var(--neu-surface);
+      color: var(--neu-accent);
+      box-shadow: var(--shadow-raised-sm);
+      border: var(--neu-border-subtle);
+      border-radius: 9999px;
+      padding: 0.5rem 1.25rem;
+      font-size: 0.875rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+  </style>
 </head>
-<body class="font-sans antialiased selection:bg-neo-pink selection:text-white overflow-x-hidden min-h-screen flex flex-col overflow-hidden">
+<body class="font-sans antialiased selection:bg-indigo-500 selection:text-white overflow-x-hidden min-h-screen flex flex-col overflow-hidden">
 
-    <!-- Dark Mode Toggle Shutter -->
-    <button id="dark-mode-toggle" class="fixed top-6 right-6 z-50 w-24 h-12 bg-white border-4 border-black flex items-center px-1 cursor-pointer shadow-[6px_6px_0_0_#000] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[4px_4px_0_0_#000] active:translate-y-[6px] active:translate-x-[6px] active:shadow-[0px_0px_0_0_#000] transition-all" aria-label="Toggle Dark Mode">
-        <div id="shutter-knob" class="w-9 h-9 bg-neo-yellow border-4 border-black flex items-center justify-center transition-transform duration-300 ease-[cubic-bezier(0.68,-0.55,0.26,1.55)]">
-            <!-- Physical grip lines -->
-            <div class="flex gap-[3px]">
-                <div class="w-[3px] h-4 bg-black"></div>
-                <div class="w-[3px] h-4 bg-black"></div>
-                <div class="w-[3px] h-4 bg-black"></div>
-            </div>
+  <!-- Dark Mode Toggle Shutter -->
+  <button id="dark-mode-toggle" class="fixed top-6 right-6 z-50 w-24 h-12 neu-track flex items-center px-[5px] cursor-pointer transition-all focus:outline-none" aria-label="Toggle Dark Mode">
+    <div id="shutter-knob" class="w-9 h-9 rounded-full bg-[var(--neu-surface)] shadow-[var(--shadow-raised-sm)] border border-white/60 dark:border-white/10 flex items-center justify-center transition-transform duration-300 ease-[cubic-bezier(0.68,-0.55,0.26,1.55)]">
+      <!-- Subtle tactile grip indicator -->
+      <div class="flex gap-[3px]">
+        <div class="w-[3px] h-3.5 rounded-full bg-slate-400 dark:bg-slate-500"></div>
+        <div class="w-[3px] h-3.5 rounded-full bg-indigo-500"></div>
+        <div class="w-[3px] h-3.5 rounded-full bg-slate-400 dark:bg-slate-500"></div>
+      </div>
+    </div>
+  </button>
+
+  <!-- NO SIGNAL Intro Animation -->
+  <div id="intro-screen" class="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center">
+    <!-- Noise Layer -->
+    <div id="static-noise" class="absolute inset-[-100%] z-0 opacity-0 pointer-events-none mix-blend-screen bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')]"></div>
+    <!-- Scanlines -->
+    <div id="scanlines" class="absolute inset-0 z-10 pointer-events-none opacity-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(79,70,229,0.06),rgba(99,102,241,0.02),rgba(79,70,229,0.06))] bg-[length:100%_4px,3px_100%]"></div>
+    
+    <div id="intro-content" class="relative z-20 flex flex-col items-center opacity-0 transition-opacity duration-100">
+      <h1 id="no-signal-text" class="font-header text-5xl md:text-7xl lg:text-8xl leading-none uppercase tracking-tight mb-8 text-white px-8 py-5 rounded-3xl bg-white/10 backdrop-blur-md border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.5)]">NO SIGNAL</h1>
+      <p id="status-text" class="font-mono text-base md:text-xl font-bold uppercase text-indigo-400 px-6 py-3 rounded-full bg-black/60 backdrop-blur-md border border-indigo-500/30 tracking-widest shadow-[0_4px_16px_rgba(79,70,229,0.3)]">SEARCHING FOR CONNECTION...</p>
+    </div>
+  </div>
+
+  <!-- Ambient background glow elements -->
+  <div class="fixed top-20 right-10 w-96 h-96 rounded-full bg-indigo-400/10 dark:bg-indigo-600/10 blur-3xl -z-10 pointer-events-none animate-[pulse_6s_ease-in-out_infinite]"></div>
+  <div class="fixed bottom-40 left-10 w-80 h-80 rounded-full bg-blue-400/10 dark:bg-blue-600/10 blur-3xl -z-10 pointer-events-none animate-[pulse_8s_ease-in-out_infinite]"></div>
+
+  <main class="flex-grow w-full max-w-6xl mx-auto px-6 py-16 md:py-24 space-y-28 md:space-y-36">
+    
+    <!-- Hero Section -->
+    <header class="relative space-y-10 mt-8">
+      <h1 class="font-header text-5xl md:text-7xl lg:text-8xl leading-[1.1] uppercase tracking-tight z-10 relative min-h-[140px] md:min-h-[200px] lg:min-h-[240px] font-bold text-[var(--neu-text-primary)]">
+        <span id="type-text-1"></span><br/>
+        <span id="type-box" class="inline-block px-5 py-2.5 mt-2 rounded-2xl neu-well relative invisible text-[var(--neu-accent)] border border-indigo-500/20">
+          <span id="type-text-2" class="relative z-20"></span>
+        </span>
+      </h1>
+      
+      <p class="font-sans text-xl md:text-2xl lg:text-3xl max-w-3xl font-medium px-8 py-6 neu-card relative z-10 text-[var(--neu-text-secondary)] leading-relaxed">
+        A 15-year-old Class 9 student and Future AI Entrepreneur.
+      </p>
+      
+      <div class="flex flex-wrap gap-6 pt-4">
+        <a href="#projects" class="neu-btn neu-btn-primary px-8 py-4 text-lg md:text-xl font-header uppercase tracking-wider">
+          See My Projects
+        </a>
+        <a href="#community" class="neu-btn px-8 py-4 text-lg md:text-xl font-header uppercase tracking-wider">
+          Join Community
+        </a>
+      </div>
+    </header>
+
+    <!-- Moving Marquee Section -->
+    <div class="neu-track relative flex overflow-x-hidden py-4 w-full">
+      <div class="animate-marquee whitespace-nowrap font-header text-xl md:text-2xl uppercase tracking-wider text-[var(--neu-text-secondary)] font-bold flex items-center">
+        <span class="mx-6 flex items-center gap-2"><span class="text-indigo-500">🚀</span> FUTURE AI ENTREPRENEUR</span>
+        <span class="mx-6 flex items-center gap-2"><span class="text-indigo-500">🚀</span> FUTURE AI ENTREPRENEUR</span>
+        <span class="mx-6 flex items-center gap-2"><span class="text-indigo-500">🚀</span> FUTURE AI ENTREPRENEUR</span>
+        <span class="mx-6 flex items-center gap-2"><span class="text-indigo-500">🚀</span> FUTURE AI ENTREPRENEUR</span>
+      </div>
+      <div class="absolute top-0 py-4 animate-marquee2 whitespace-nowrap font-header text-xl md:text-2xl uppercase tracking-wider text-[var(--neu-text-secondary)] font-bold flex items-center">
+        <span class="mx-6 flex items-center gap-2"><span class="text-indigo-500">🚀</span> FUTURE AI ENTREPRENEUR</span>
+        <span class="mx-6 flex items-center gap-2"><span class="text-indigo-500">🚀</span> FUTURE AI ENTREPRENEUR</span>
+        <span class="mx-6 flex items-center gap-2"><span class="text-indigo-500">🚀</span> FUTURE AI ENTREPRENEUR</span>
+        <span class="mx-6 flex items-center gap-2"><span class="text-indigo-500">🚀</span> FUTURE AI ENTREPRENEUR</span>
+      </div>
+    </div>
+
+    <!-- About Me Section -->
+    <section id="about" class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+      <div class="lg:col-span-8">
+        <div class="neu-card p-8 md:p-12 h-full relative flex flex-col justify-center">
+          <div class="mb-6">
+            <span class="neu-section-badge">The Vision</span>
+          </div>
+          <p class="font-sans text-xl md:text-2xl leading-relaxed font-medium text-[var(--neu-text-secondary)]">
+            I dedicate 5 hours a week to mastering Python and AI, with the ambition of building valuable startups and AI products.
+          </p>
         </div>
-    </button>
+      </div>
+      
+      <!-- Neumorphic Decorative Graphic -->
+      <div class="hidden lg:flex lg:col-span-4 relative flex-col items-center justify-center p-4">
+        <div class="neu-card p-8 w-full h-full min-h-[260px] flex items-center justify-center relative overflow-hidden">
+          <div class="neu-well w-48 h-48 rounded-full flex items-center justify-center">
+            <div class="neu-avatar-frame w-32 h-32 rounded-full flex flex-col items-center justify-center">
+              <span class="font-header text-4xl text-center block font-bold text-[var(--neu-accent)]">AI</span>
+              <span class="font-mono text-xs font-bold uppercase tracking-widest block text-[var(--neu-text-secondary)] mt-1 border-t border-[var(--neu-border-inset)] pt-1">FUTURE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
- <!-- NO SIGNAL Intro Animation -->
- <div id="intro-screen" class="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center">
- <!-- Noise Layer -->
- <div id="static-noise" class="absolute inset-[-100%] z-0 opacity-0 pointer-events-none mix-blend-screen bg-[url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E')]"></div>
- <!-- Scanlines -->
- <div id="scanlines" class="absolute inset-0 z-10 pointer-events-none opacity-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%]"></div>
- 
- <div id="intro-content" class="relative z-20 flex flex-col items-center opacity-0 transition-opacity duration-100">
- <h1 id="no-signal-text" class="font-header text-6xl md:text-8xl leading-none uppercase tracking-tighter mb-8 bg-white text-black px-8 py-4 border-[6px] border-black shadow-[12px_12px_0_0_#FFF] mix-blend-screen">NO SIGNAL</h1>
- <p id="status-text" class="font-mono text-lg md:text-2xl font-bold uppercase bg-black text-white px-4 py-2 border-[4px] border-white tracking-widest shadow-[6px_6px_0_0_#FFF]">SEARCHING FOR CONNECTION...</p>
- </div>
- </div>
+    <!-- Skills Section -->
+    <section id="skills" class="space-y-8 relative">
+      <div class="absolute right-0 top-0 text-[var(--neu-text-muted)] opacity-10 font-header text-9xl -z-10 hidden md:block select-none pointer-events-none tracking-widest">SKILLS</div>
+      
+      <div>
+        <span class="neu-section-badge">Arsenal</span>
+      </div>
+      
+      <div class="flex flex-wrap gap-4 md:gap-6 pt-2">
+        <div class="neu-pill px-6 py-4 font-mono text-base md:text-lg font-bold uppercase cursor-default">
+          Olympiad-Level Mathematics
+        </div>
+        <div class="neu-pill px-6 py-4 font-mono text-base md:text-lg font-bold uppercase cursor-default">
+          Physics Numericals
+        </div>
+        <div class="neu-pill px-6 py-4 font-mono text-base md:text-lg font-bold uppercase cursor-default">
+          Python Programming
+        </div>
+        <div class="neu-pill px-6 py-4 font-mono text-base md:text-lg font-bold uppercase cursor-default">
+          Prompt Engineering
+        </div>
+        <div class="neu-pill-inset px-6 py-4 font-mono text-base md:text-lg font-bold uppercase cursor-default flex items-center gap-3">
+          <span class="w-2.5 h-2.5 rounded-full bg-indigo-500 animate-pulse"></span>
+          AI Model Training (In Progress)
+        </div>
+      </div>
+    </section>
 
- <!-- Decorative background elements -->
- <div class="fixed top-20 right-10 w-64 h-64 border-4 border-black rounded-full mix-blend-multiply opacity-20 bg-neo-yellow -z-10 pointer-events-none animate-[pulse_4s_ease-in-out_infinite]"></div>
- <div class="fixed bottom-40 left-10 w-48 h-48 border-4 border-black mix-blend-multiply opacity-20 bg-neo-blue transform rotate-12 -z-10 pointer-events-none animate-[spin_12s_linear_infinite]"></div>
+    <!-- Projects Section -->
+    <section id="projects" class="space-y-8">
+      <div>
+        <span class="neu-section-badge">Projects</span>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 pt-2">
+        <!-- Project 1 -->
+        <div class="neu-card p-8 md:p-10 flex flex-col h-full">
+          <!-- Project Image/Placeholder Well -->
+          <div class="neu-well w-full h-48 mb-6 overflow-hidden flex items-center justify-center relative group">
+            <div class="neu-pill px-6 py-3 font-header text-2xl font-bold text-[var(--neu-accent)] z-10 group-hover:scale-105 transition-transform">
+              DOLPHIN
+            </div>
+          </div>
+          
+          <h3 class="font-header text-2xl md:text-3xl mb-4 uppercase text-[var(--neu-text-primary)] font-bold">Dolphin Hotel</h3>
+          <p class="font-sans text-base md:text-lg font-medium text-[var(--neu-text-secondary)] mb-8 flex-grow leading-relaxed">
+            A live web project showcasing my foundational web deployment skills.
+          </p>
+          <a href="https://dolphinhotel.vercel.app" target="_blank" rel="noopener noreferrer" class="neu-btn neu-btn-primary text-center py-4 text-lg md:text-xl font-header uppercase w-full">
+            Visit Site &rarr;
+          </a>
+        </div>
 
- <main class="flex-grow w-full max-w-6xl mx-auto px-6 py-16 md:py-24 space-y-32">
- 
- <!-- Hero Section -->
- <header class="relative space-y-10 mt-8">
- <h1 class="font-header text-6xl md:text-[5.5rem] lg:text-[7rem] leading-[1.1] uppercase tracking-tight z-10 relative min-h-[140px] md:min-h-[200px] lg:min-h-[250px]">
- <span id="type-text-1"></span><br/>
- <span id="type-box" class="bg-neo-yellow inline-block px-4 py-2 mt-2 neo-border transform -rotate-2 relative invisible shadow-[8px_8px_0_0_var(--neo-color)]">
- <span id="type-text-2" class="relative z-20"></span>
- </span>
- </h1>
- 
- <p class="font-mono text-xl md:text-2xl lg:text-3xl max-w-3xl font-bold bg-white inline-block px-6 py-4 neo-card relative z-10">
- A 15-year-old Class 9 student and Future AI Entrepreneur.
- </p>
- 
- <div class="flex flex-wrap gap-6 pt-6">
- <a href="#projects" class="neo-btn bg-neo-blue px-8 py-4 text-xl font-header uppercase tracking-wider hover:bg-white text-black ">
- See My Projects
- </a>
- <a href="#community" class="neo-btn bg-neo-pink px-8 py-4 text-xl font-header uppercase tracking-wider text-black hover:bg-black hover:text-white">
- Join Community
- </a>
- </div>
- </header>
+        <!-- Project 2 -->
+        <div class="neu-card p-8 md:p-10 flex flex-col h-full">
+          <!-- Project Image/Placeholder Well -->
+          <div class="neu-well w-full h-48 mb-6 overflow-hidden flex items-center justify-center relative group">
+            <div class="neu-pill px-6 py-3 font-header text-2xl font-bold text-[var(--neu-accent)] z-10 group-hover:scale-105 transition-transform">
+              AI APP
+            </div>
+          </div>
 
- <!-- Moving Marquee Section -->
- <div class="relative flex overflow-x-hidden bg-neo-green text-black font-header text-2xl py-3 border-y-4 border-black transform -rotate-2 w-[110vw] -ml-[10vw] shadow-[0_8px_0_0_var(--neo-color)]">
- <div class="animate-marquee whitespace-nowrap">
- <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
- <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
- <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
- <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
- </div>
- <div class="absolute top-0 py-3 animate-marquee2 whitespace-nowrap">
- <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
- <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
- <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
- <span class="mx-4">🚀 FUTURE AI ENTREPRENEUR</span>
- </div>
- </div>
+          <h3 class="font-header text-2xl md:text-3xl mb-4 uppercase text-[var(--neu-text-primary)] font-bold">AI App Development</h3>
+          <p class="font-sans text-base md:text-lg font-medium text-[var(--neu-text-secondary)] mb-8 flex-grow leading-relaxed">
+            Currently transitioning from core Python to building real-world AI applications using LLMs and Neural Networks.
+          </p>
+          <div class="neu-pill-inset text-center py-4 text-lg md:text-xl font-header uppercase w-full cursor-not-allowed justify-center text-[var(--neu-text-muted)]">
+            In Development
+          </div>
+        </div>
+      </div>
+    </section>
 
- <!-- About Me Section -->
- <section id="about" class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
- <div class="lg:col-span-8">
- <div class="neo-card bg-white p-8 md:p-12 h-full relative">
- <h2 class="font-header text-4xl md:text-5xl uppercase mb-8 pb-4 border-b-4 border-black inline-block">The Vision</h2>
- <p class="font-mono text-lg md:text-xl leading-relaxed font-semibold">
- I dedicate 5 hours a week to mastering Python and AI, with the ambition of building valuable startups and AI products.
- </p>
- </div>
- </div>
- 
- <!-- Brutalist Decorative Graphic -->
- <div class="hidden lg:flex lg:col-span-4 relative flex-col items-center justify-center p-8">
- <!-- Layer 1 -->
- <div class="absolute inset-0 bg-neo-pink neo-border transform rotate-6 z-0 box-shadow-neo"></div>
- <!-- Layer 2 -->
- <div class="absolute inset-4 bg-stripes neo-border transform -rotate-3 z-10"></div>
- <!-- Layer 3 -->
- <div class="absolute bg-white p-6 neo-border shadow-[4px_4px_0_0_var(--neo-color)] z-20 transform -rotate-6">
- <span class="font-header text-6xl text-center block">AI</span>
- <span class="font-mono font-bold block border-t-4 border-black pt-2 mt-2">FUTURE</span>
- </div>
- </div>
- </section>
+    <!-- Join Community Section -->
+    <section id="community" class="space-y-8">
+      <div>
+        <span class="neu-section-badge">Join Community</span>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 pt-2">
+        <!-- WhatsApp Card -->
+        <div class="neu-card p-8 md:p-10 flex flex-col h-full items-center text-center">
+          <div class="neu-avatar-frame w-20 h-20 rounded-full mb-6">
+            <span class="text-4xl">💬</span>
+          </div>
+          <h3 class="font-header text-2xl md:text-3xl mb-4 uppercase text-[var(--neu-text-primary)] font-bold">Direct Chat</h3>
+          <p class="font-sans text-base md:text-lg font-medium text-[var(--neu-text-secondary)] mb-8 flex-grow leading-relaxed">
+            Connect with me instantly on WhatsApp to discuss AI, startups, or collaborations.
+          </p>
+          <a href="https://wa.me/918159923266" target="_blank" rel="noopener noreferrer" class="neu-btn text-center py-4 text-lg md:text-xl font-header uppercase w-full hover:text-emerald-600 dark:hover:text-emerald-400">
+            WhatsApp Me &rarr;
+          </a>
+        </div>
 
- <!-- Skills Section -->
- <section id="skills" class="space-y-12 relative">
- <div class="absolute right-0 top-0 text-neo-pink opacity-20 font-header text-9xl -z-10 hidden md:block select-none pointer-events-none">SKILLS</div>
- 
- <h2 class="font-header text-4xl md:text-5xl uppercase inline-block bg-neo-green px-4 py-2 neo-border transform -rotate-1 shadow-[6px_6px_0_0_var(--neo-color)]">
- Arsenal
- </h2>
- 
- <div class="flex flex-wrap gap-4 md:gap-6 pt-4">
- <div class="neo-pill bg-white px-6 py-4 font-mono text-lg font-bold uppercase hover:bg-neo-yellow cursor-default">
- Olympiad-Level Mathematics
- </div>
- <div class="neo-pill bg-white px-6 py-4 font-mono text-lg font-bold uppercase hover:bg-neo-blue cursor-default">
- Physics Numericals
- </div>
- <div class="neo-pill bg-white px-6 py-4 font-mono text-lg font-bold uppercase hover:bg-neo-pink hover:text-white cursor-default">
- Python Programming
- </div>
- <div class="neo-pill bg-white px-6 py-4 font-mono text-lg font-bold uppercase hover:bg-neo-green cursor-default">
- Prompt Engineering
- </div>
- <div class="neo-pill bg-black text-white px-6 py-4 font-mono text-lg font-bold uppercase border-dashed border-white border-2 outline outline-4 outline-black cursor-default">
- AI Model Training (In Progress)
- </div>
- </div>
- </section>
+        <!-- Email Card -->
+        <div class="neu-card p-8 md:p-10 flex flex-col h-full items-center text-center">
+          <div class="neu-avatar-frame w-20 h-20 rounded-full mb-6">
+            <span class="text-4xl">✉️</span>
+          </div>
+          <h3 class="font-header text-2xl md:text-3xl mb-4 uppercase text-[var(--neu-text-primary)] font-bold">Email</h3>
+          <p class="font-sans text-base md:text-lg font-medium text-[var(--neu-text-secondary)] mb-8 flex-grow leading-relaxed">
+            For longer inquiries, mentorship, or formal proposals, drop me an email.
+          </p>
+          <a href="mailto:kingshukbiswas797@email.com" class="neu-btn text-center py-4 text-base sm:text-lg md:text-xl break-all font-header uppercase w-full hover:text-indigo-600 dark:hover:text-indigo-400">
+            kingshukbiswas797@email.com
+          </a>
+        </div>
+      </div>
+    </section>
 
- <!-- Projects Section -->
- <section id="projects" class="space-y-12">
- <h2 class="font-header text-4xl md:text-5xl uppercase inline-block bg-neo-blue px-4 py-2 neo-border transform rotate-1 shadow-[6px_6px_0_0_var(--neo-color)]">
- Projects
- </h2>
- 
- <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 pt-6">
- <!-- Project 1 -->
- <div class="neo-card bg-neo-yellow p-8 flex flex-col h-full hover:-translate-y-2 hover:-translate-x-2 hover:shadow-[16px_16px_0_0_var(--neo-color)]">
- <!-- Project Image/Placeholder -->
- <div class="w-full h-48 bg-white neo-border mb-6 overflow-hidden flex items-center justify-center relative group">
- <div class="absolute inset-0 bg-stripes opacity-30"></div>
- <span class="font-header text-3xl z-10 bg-white px-4 py-2 neo-border shadow-[4px_4px_0_0_var(--neo-color)] group-hover:scale-110 transition-transform">DOLPHIN</span>
- </div>
- 
- <h3 class="font-header text-3xl mb-4 uppercase">Dolphin Hotel</h3>
- <p class="font-mono text-lg font-bold mb-8 flex-grow">
- A live web project showcasing my foundational web deployment skills.
- </p>
- <a href="https://dolphinhotel.vercel.app" target="_blank" rel="noopener noreferrer" class="neo-btn bg-white text-center py-4 text-xl font-header uppercase w-full hover:bg-black hover:text-white">
- Visit Site &rarr;
- </a>
- </div>
+  </main>
 
- <!-- Project 2 -->
- <div class="neo-card bg-neo-pink p-8 flex flex-col h-full hover:-translate-y-2 hover:-translate-x-2 hover:shadow-[16px_16px_0_0_var(--neo-color)]">
- <!-- Project Image/Placeholder -->
- <div class="w-full h-48 bg-white neo-border mb-6 overflow-hidden flex items-center justify-center relative group">
- <div class="absolute inset-0 bg-black opacity-10"></div>
- <span class="font-header text-3xl z-10 bg-black text-neo-pink px-4 py-2 neo-border shadow-[4px_4px_0_0_#fff] group-hover:scale-110 transition-transform">AI APP</span>
- </div>
+  <!-- Footer -->
+  <footer class="mt-24 border-t border-white/60 dark:border-white/5 bg-[var(--neu-surface)] shadow-[0_-8px_20px_var(--neu-shadow-dark-subtle)]">
+    <div class="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-4">
+        <div class="neu-avatar-frame w-12 h-12 rounded-full overflow-hidden">
+          <span class="text-[var(--neu-accent)] font-header text-xl font-bold">K</span>
+        </div>
+        <p class="font-header text-xl md:text-2xl uppercase tracking-widest text-center md:text-left text-[var(--neu-text-primary)] font-bold">
+          Built by Koustav.<br class="md:hidden"/> Mentored by AI.
+        </p>
+      </div>
+      
+      <div class="font-mono text-base md:text-lg font-bold flex flex-wrap gap-4 mt-4 md:mt-0">
+        <a href="#about" class="neu-pill px-5 py-2 hover:text-[var(--neu-accent)] transition-colors">/About</a>
+        <a href="#skills" class="neu-pill px-5 py-2 hover:text-[var(--neu-accent)] transition-colors">/Skills</a>
+        <a href="#projects" class="neu-pill px-5 py-2 hover:text-[var(--neu-accent)] transition-colors">/Projects</a>
+      </div>
+    </div>
+  </footer>
 
- <h3 class="font-header text-3xl mb-4 uppercase text-black ">AI App Development</h3>
- <p class="font-mono text-lg font-bold mb-8 flex-grow text-black ">
- Currently transitioning from core Python to building real-world AI applications using LLMs and Neural Networks.
- </p>
- <div class="neo-btn bg-white opacity-60 text-center py-4 text-xl font-header uppercase w-full cursor-not-allowed">
- In Development
- </div>
- </div>
- </div>
- </section>
+  <script>
+    const text1 = "Hi I am ";
+    const text2 = "Koustav Biswas";
+    let i = 0;
+    let j = 0;
+    const speed = 100; // typing speed in milliseconds
 
- <!-- Join Community Section -->
- <section id="community" class="space-y-12">
- <h2 class="font-header text-4xl md:text-5xl uppercase inline-block bg-neo-yellow px-4 py-2 neo-border transform -rotate-2 shadow-[6px_6px_0_0_var(--neo-color)]">
- Join Community
- </h2>
- 
- <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 pt-6">
- <!-- WhatsApp Card -->
- <div class="neo-card bg-neo-green p-8 flex flex-col h-full items-center text-center">
- <div class="w-20 h-20 bg-white rounded-full neo-border flex items-center justify-center mb-6 shadow-[4px_4px_0_0_var(--neo-color)]">
- <span class="text-4xl">💬</span>
- </div>
- <h3 class="font-header text-3xl mb-4 uppercase">Direct Chat</h3>
- <p class="font-mono text-lg font-bold mb-8 flex-grow">
- Connect with me instantly on WhatsApp to discuss AI, startups, or collaborations.
- </p>
- <a href="https://wa.me/918159923266" target="_blank" rel="noopener noreferrer" class="neo-btn bg-white text-center py-4 text-xl font-header uppercase w-full hover:bg-black hover:text-white">
- WhatsApp Me &rarr;
- </a>
- </div>
+    function typeWriter1() {
+      if (i < text1.length) {
+        document.getElementById("type-text-1").innerHTML += text1.charAt(i);
+        i++;
+        setTimeout(typeWriter1, speed);
+      } else {
+        // Reveal the box and start typing name
+        document.getElementById("type-box").classList.remove("invisible");
+        setTimeout(typeWriter2, speed);
+      }
+    }
 
- <!-- Email Card -->
- <div class="neo-card bg-white p-8 flex flex-col h-full items-center text-center">
- <div class="w-20 h-20 bg-neo-pink rounded-full neo-border flex items-center justify-center mb-6 shadow-[4px_4px_0_0_var(--neo-color)]">
- <span class="text-4xl text-white">✉️</span>
- </div>
- <h3 class="font-header text-3xl mb-4 uppercase">Email</h3>
- <p class="font-mono text-lg font-bold mb-8 flex-grow">
- For longer inquiries, mentorship, or formal proposals, drop me an email.
- </p>
- <a href="mailto:kingshukbiswas797@email.com" class="neo-btn bg-neo-blue text-center py-4 text-xl font-header uppercase w-full hover:bg-black hover:text-white">
- kingshukbiswas797@email.com
- </a>
- </div>
- </div>
- </section>
+    function typeWriter2() {
+      if (j < text2.length) {
+        document.getElementById("type-text-2").innerHTML += text2.charAt(j);
+        j++;
+        setTimeout(typeWriter2, speed);
+      }
+    }
 
- </main>
+    // Dark Mode Logic
+    const themeToggleBtn = document.getElementById('dark-mode-toggle');
+    
+    function updateTheme(isDark) {
+      const knob = document.getElementById('shutter-knob');
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        if (knob) knob.style.transform = 'translateX(50px)';
+        localStorage.setItem('theme', 'dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        if (knob) knob.style.transform = 'translateX(0px)';
+        localStorage.setItem('theme', 'light');
+      }
+    }
+    
+    // Initial load
+    const storedTheme = localStorage.getItem('theme');
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (storedTheme === 'dark' || (!storedTheme && systemDark)) {
+      updateTheme(true);
+    } else {
+      updateTheme(false);
+    }
+    
+    themeToggleBtn.addEventListener('click', () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      updateTheme(!isDark);
+    });
 
- <!-- Footer -->
- <footer class="border-t-[6px] border-black mt-20 bg-neo-yellow">
- <div class="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
- <div class="flex items-center gap-4">
- <div class="w-12 h-12 bg-black rounded-full neo-border shadow-[4px_4px_0_0_#fff] border-white outline outline-4 outline-black flex justify-center items-center overflow-hidden">
- <span class="text-white font-header text-xl">K</span>
- </div>
- <p class="font-header text-2xl uppercase tracking-widest text-center md:text-left">
- Built by Koustav.<br class="md:hidden"/> Mentored by AI.
- </p>
- </div>
- 
- <div class="font-mono text-lg font-bold flex gap-6 mt-4 md:mt-0">
- <a href="#about" class="hover:underline hover:text-neo-pink hover:bg-black hover:text-white px-2 py-1 transition-colors">/About</a>
- <a href="#projects" class="hover:underline hover:text-neo-pink hover:bg-black hover:text-white px-2 py-1 transition-colors">/Projects</a>
- </div>
- </div>
- </footer>
+    // NO SIGNAL Intro Animation Logic
+    const introScreen = document.getElementById('intro-screen');
+    const staticNoise = document.getElementById('static-noise');
+    const scanlines = document.getElementById('scanlines');
+    const introContent = document.getElementById('intro-content');
+    const noSignalText = document.getElementById('no-signal-text');
+    const statusText = document.getElementById('status-text');
 
- <script>
- const text1 = "Hi I am ";
- const text2 = "Koustav Biswas";
- let i = 0;
- let j = 0;
- const speed = 100; // typing speed in milliseconds
+    // Check for reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
- function typeWriter1() {
- if (i < text1.length) {
- document.getElementById("type-text-1").innerHTML += text1.charAt(i);
- i++;
- setTimeout(typeWriter1, speed);
- } else {
- // Reveal the box and start typing name
- document.getElementById("type-box").classList.remove("invisible");
- setTimeout(typeWriter2, speed);
- }
- }
+    if (prefersReducedMotion) {
+      introScreen.remove();
+      document.body.classList.remove('overflow-hidden');
+      setTimeout(typeWriter1, 500);
+    } else {
+      // Sequence timings
+      const statuses = ['NO SIGNAL', 'SIGNAL LOST', 'RECONNECTING...', 'SYNC FAILED', 'SEARCHING...'];
+      let statusIndex = 0;
 
- function typeWriter2() {
- if (j < text2.length) {
- document.getElementById("type-text-2").innerHTML += text2.charAt(j);
- j++;
- setTimeout(typeWriter2, speed);
- }
- }
+      // 0.0s - 0.5s: Start subtle static
+      setTimeout(() => {
+        staticNoise.style.opacity = '0.15';
+      }, 100);
 
- // Dark Mode Logic
- const themeToggleBtn = document.getElementById('dark-mode-toggle');
- 
- function updateTheme(isDark) {
- const knob = document.getElementById('shutter-knob');
- if (isDark) {
- document.documentElement.classList.add('dark');
- if (knob) knob.style.transform = 'translateX(50px)';
- localStorage.setItem('theme', 'dark');
- } else {
- document.documentElement.classList.remove('dark');
- if (knob) knob.style.transform = 'translateX(0px)';
- localStorage.setItem('theme', 'light');
- }
- }
- 
- // Initial load
- const storedTheme = localStorage.getItem('theme');
- const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
- 
- if (storedTheme === 'dark' || (!storedTheme && systemDark)) {
- updateTheme(true);
- } else {
- updateTheme(false);
- }
- 
- themeToggleBtn.addEventListener('click', () => {
- const isDark = document.documentElement.classList.contains('dark');
- updateTheme(!isDark);
- });
+      // Animate noise translation randomly
+      let noiseInterval = setInterval(() => {
+        staticNoise.style.transform = `translate(${Math.floor(Math.random() * 10 - 5)}%, ${Math.floor(Math.random() * 10 - 5)}%)`;
+      }, 40);
 
- // NO SIGNAL Intro Animation Logic
- const introScreen = document.getElementById('intro-screen');
- const staticNoise = document.getElementById('static-noise');
- const scanlines = document.getElementById('scanlines');
- const introContent = document.getElementById('intro-content');
- const noSignalText = document.getElementById('no-signal-text');
- const statusText = document.getElementById('status-text');
+      // 0.5s: Reveal Scanlines & Text
+      setTimeout(() => {
+        scanlines.style.opacity = '1';
+        introContent.style.opacity = '1';
+      }, 500);
 
- // Check for reduced motion
- const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      // Cycle text intentionally
+      let textInterval = setInterval(() => {
+        statusIndex = (statusIndex + 1) % statuses.length;
+        statusText.innerText = statuses[statusIndex];
+      }, 400);
 
- if (prefersReducedMotion) {
- introScreen.remove();
- document.body.classList.remove('overflow-hidden');
- setTimeout(typeWriter1, 500);
- } else {
- // Sequence timings
- const statuses = ['NO SIGNAL', 'SIGNAL LOST', 'RECONNECTING...', 'SYNC FAILED', 'SEARCHING...'];
- let statusIndex = 0;
+      // Jitter / Tearing glitches
+      let glitchInterval = setInterval(() => {
+        if (Math.random() > 0.6) {
+          noSignalText.style.transform = `translate(${Math.random() * 20 - 10}px, 0) skewX(${Math.random() * 10 - 5}deg)`;
+          setTimeout(() => {
+            noSignalText.style.transform = 'none';
+          }, 50 + Math.random() * 100);
+        }
+      }, 150);
 
- // 0.0s - 0.5s: Start subtle static
- setTimeout(() => {
- staticNoise.style.opacity = '0.15';
- }, 100);
+      // 2.5s: Freeze, cut to black, vertical line reveal
+      setTimeout(() => {
+        // Freeze
+        clearInterval(noiseInterval);
+        clearInterval(textInterval);
+        clearInterval(glitchInterval);
 
- // Animate noise translation randomly
- let noiseInterval = setInterval(() => {
- staticNoise.style.transform = `translate(${Math.floor(Math.random() * 10 - 5)}%, ${Math.floor(Math.random() * 10 - 5)}%)`;
- }, 40);
+        // Cut to black
+        introContent.style.display = 'none';
+        staticNoise.style.display = 'none';
+        scanlines.style.display = 'none';
 
- // 0.5s: Reveal Scanlines & Text
- setTimeout(() => {
- scanlines.style.opacity = '1';
- introContent.style.opacity = '1';
- }, 500);
+        // Sharp horizontal line reveal into canvas
+        setTimeout(() => {
+          introScreen.classList.remove('bg-black');
+          introScreen.classList.add('bg-transparent');
+          introScreen.innerHTML = `
+            <div id="tv-top" class="absolute top-0 left-0 w-full h-1/2 bg-[var(--neu-bg)] origin-top transition-transform duration-300 ease-in"></div>
+            <div id="tv-bottom" class="absolute bottom-0 left-0 w-full h-1/2 bg-[var(--neu-bg)] origin-bottom transition-transform duration-300 ease-in"></div>
+            <div id="tv-line" class="absolute top-1/2 left-0 w-full h-[4px] bg-[var(--neu-accent)] transform -translate-y-1/2 z-10 transition-all duration-300 ease-in shadow-[0_0_20px_var(--neu-accent)]"></div>
+          `;
 
- // Cycle text intentionally
- let textInterval = setInterval(() => {
- statusIndex = (statusIndex + 1) % statuses.length;
- statusText.innerText = statuses[statusIndex];
- }, 400);
+          setTimeout(() => {
+            // Flash out
+            const tvLine = document.getElementById('tv-line');
+            const tvTop = document.getElementById('tv-top');
+            const tvBottom = document.getElementById('tv-bottom');
+            
+            if (tvLine) {
+              tvLine.style.height = '100vh';
+              tvLine.style.opacity = '0';
+            }
+            if (tvTop) tvTop.style.transform = 'scaleY(0)';
+            if (tvBottom) tvBottom.style.transform = 'scaleY(0)';
 
- // Jitter / Tearing glitches
- let glitchInterval = setInterval(() => {
- if (Math.random() > 0.6) {
- noSignalText.style.transform = `translate(${Math.random() * 20 - 10}px, 0) skewX(${Math.random() * 10 - 5}deg)`;
- setTimeout(() => {
- noSignalText.style.transform = 'none';
- }, 50 + Math.random() * 100);
- }
- }, 150);
+            setTimeout(() => {
+              introScreen.remove();
+              document.body.classList.remove('overflow-hidden');
+              // Start typewriter after intro
+              setTimeout(typeWriter1, 300);
+            }, 300);
+          }, 150);
 
- // 2.5s: Freeze, cut to black, vertical line reveal
- setTimeout(() => {
- // Freeze
- clearInterval(noiseInterval);
- clearInterval(textInterval);
- clearInterval(glitchInterval);
-
- // Cut to black
- introContent.style.display = 'none';
- staticNoise.style.display = 'none';
- scanlines.style.display = 'none';
-
- // Sharp horizontal white line
- setTimeout(() => {
- introScreen.classList.remove('bg-black');
- introScreen.classList.add('bg-transparent');
- introScreen.innerHTML = `
- <div id="tv-top" class="absolute top-0 left-0 w-full h-1/2 bg-black origin-top transition-transform duration-300 ease-in"></div>
- <div id="tv-bottom" class="absolute bottom-0 left-0 w-full h-1/2 bg-black origin-bottom transition-transform duration-300 ease-in"></div>
- <div id="tv-line" class="absolute top-1/2 left-0 w-full h-[4px] bg-white transform -translate-y-1/2 z-10 transition-all duration-300 ease-in shadow-[0_0_20px_#fff]"></div>
- `;
-
- setTimeout(() => {
- // Flash out
- const tvLine = document.getElementById('tv-line');
- const tvTop = document.getElementById('tv-top');
- const tvBottom = document.getElementById('tv-bottom');
- 
- tvLine.style.height = '100vh';
- tvLine.style.opacity = '0';
- tvTop.style.transform = 'scaleY(0)';
- tvBottom.style.transform = 'scaleY(0)';
- 
- setTimeout(() => {
- introScreen.remove();
- document.body.classList.remove('overflow-hidden');
- // Start typewriter after intro
- setTimeout(typeWriter1, 300);
- }, 300);
- }, 150);
-
- }, 100);
- }, 2500);
- }
- </script>
+        }, 100);
+      }, 2500);
+    }
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
